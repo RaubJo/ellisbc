@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Ellis Baptist Church">
+	<main class="mx-auto p-6 lg:max-w-4xl">
+		<div class="flex mb-4 gap-2 items-stretch text-center">
+			<div class="basis-1/3">
+				<Card
+					href="https://www.facebook.com/www.ellisbc.org/videos/"
+					title="Messages"
+					button="View Services"
+				>
+					<p class="mt-2 mb-0 text-[#444]">Each of our services are livestreamed. Click to tune in.</p>
+				</Card>
+			</div>
+			<div class="basis-1/3 content-center">
+				<Card
+					href="https://www.facebook.com/www.ellisbc.org/videos/"
+					title="Services"
+				>
+				<p class="mt-2 pr-6 pl-6 mb-0 text-[#444]">
+					<ul>
+						<li>Sunday School 10:00 AM</li>
+						<li>Sunday Worship 11:00 AM</li>
+						<li>Sunday Evening 6:00 PM</li>
+						<li>Wednesday Evening 7:00 PM</li>
+				</p>
+				</Card>
+			</div>
+			<div class="basis-1/3">
+				<Card
+					href="https://pushpay.com/g/ellisbc?src=hpp"
+					title="Giving"
+					button="Give Now"
+				>
+					<p class="mt-2 mb-0 text-[#444]">Even when you are absent, you're giving still matters.</p>
+				</Card>
+			</div>
+		  </div>
+	</main>
+</Layout>
+
+<style>
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		border: 1px solid rgba(var(--accent), 25%);
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.4rem;
+	}
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: inline-flex;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
