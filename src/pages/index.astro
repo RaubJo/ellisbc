@@ -1,12 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Hero from '../layouts/Hero.astro';
+import Bricks from './Brick-Texture.jpg';
 ---
 
 <Layout title="Ellis Baptist Church">
+	<Hero></Hero>
 	<main class="mx-auto p-6 lg:max-w-4xl">
-		<div class="flex mb-4 gap-2 items-stretch text-center">
-			<div class="basis-1/3">
+		<div class="flex-inline justify-center m-6 gap-2 items-stretch text-center lg:flex">
+			<div class="px-auto mb-4 md:basis-1/3">
 				<Card
 					href="https://www.facebook.com/www.ellisbc.org/videos/"
 					title="Messages"
@@ -15,7 +18,7 @@ import Card from '../components/Card.astro';
 					<p class="mt-2 mb-0 text-[#444]">Each of our services are livestreamed. Click to tune in.</p>
 				</Card>
 			</div>
-			<div class="basis-1/3 content-center">
+			<div class="mx-auto mb-4 md:basis-1/3 content-center">
 				<Card
 					href="https://www.facebook.com/www.ellisbc.org/videos/"
 					title="Services"
@@ -29,7 +32,7 @@ import Card from '../components/Card.astro';
 				</p>
 				</Card>
 			</div>
-			<div class="basis-1/3">
+			<div class=" mx-auto mb-4 md:basis-1/3">
 				<Card
 					href="https://pushpay.com/g/ellisbc?src=hpp"
 					title="Giving"
