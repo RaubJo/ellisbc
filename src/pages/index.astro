@@ -2,13 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Hero from '../layouts/Hero.astro';
-import Bricks from './Brick-Texture.jpg';
+import CenteredContentRow from '../components/CenteredContentRow.astro';
+import Map from '../components/Map.astro';
+import Footer from '../layouts/Footer.astro';
+
+import Pastor from '/pastor.jpg';
+import WhiteLink from '../components/WhiteLink.astro';
+
 ---
 
 <Layout title="Ellis Baptist Church">
 	<Hero></Hero>
 	<main class="mx-auto p-6 lg:max-w-4xl">
-		<div class="flex-inline justify-center m-6 gap-2 items-stretch text-center lg:flex">
+		<div class="flex-inline justify-center m-6 gap-2 items-stretch text-center md:flex">
 			<div class="px-auto mb-4 md:basis-1/3">
 				<Card
 					href="https://www.facebook.com/www.ellisbc.org/videos/"
@@ -24,7 +30,7 @@ import Bricks from './Brick-Texture.jpg';
 					title="Services"
 				>
 				<p class="mt-2 pr-6 pl-6 mb-0 text-[#444]">
-					<ul>
+					<ul class="whitespace-nowrap">
 						<li>Sunday School 10:00 AM</li>
 						<li>Sunday Worship 11:00 AM</li>
 						<li>Sunday Evening 6:00 PM</li>
@@ -43,6 +49,24 @@ import Bricks from './Brick-Texture.jpg';
 			</div>
 		  </div>
 	</main>
+	<CenteredContentRow>
+			<div class="w-full md:w-1/2 p-6">
+				<img
+					src={Pastor}
+				>
+			</div>
+			<div class="w-full md:w-1/2 p-6">
+				<h1 class="font-bold text-center md:text-left text-4xl mb-4">Meet Our Pastor</h1>
+				<p class="text-lg mb-4"> Pastor Chad Pritchett has been at Ellis Baptist Church since 2013. We are thankful for his heart to serve and shepherd this flock.</p>
+				<p class="text-lg mb-8">To learn more about Ellis Baptist Church, click the links below.</p>
+				<div class="flex flex-row justify-evenly">
+					<WhiteLink text="What we believe" href="/about/beliefs"/>
+					<WhiteLink text="How can I be saved" href="/about/salvation"/>
+				</div>
+			</div>
+	</CenteredContentRow>
+	<Map></Map>
+	<Footer></Footer>
 </Layout>
 
 <style>
