@@ -1,7 +1,31 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+import LeftContent from "../../components/LeftContent.astro";
+import RightContent from "../../components/RightContent.astro";
+import CenterContent from "../../components/CenterContent.astro";
+import type Beliefs from './beliefs.astro';
 ---
 
+
 <Layout title="How Can I Be Saved">
+    <div class="flex flex-col">
+        <h1 class="text-center text-6xl font-bold">What is being Saved?</h1>
+        <span class="text-center text-5xl font-bold">&</span>
+        <h1 class="text-center text-4xl font-bold">Why is it so important?</h1>
+    </div>
+    <CenterContent>
+        <div>
+            <p class=" w-3/4 lg:w-1/2 mx-auto text-2xl italic font-bold text-center">"But speaking the truth in love, may grown up into him in all things, which is the head, even Christ:"</p>
+            <p class="text-xl font-bold text-center">Ephesians 4:15</p>
+        <div>
+    </CenterContent>
+    <LeftContent>
+        <h1> Left</h1>
+    </LeftContent>
+
+    <RightContent>
+        <h1>Right</h1>
+    </RightContent>
 
 </Layout>
