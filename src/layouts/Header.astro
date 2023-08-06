@@ -2,16 +2,20 @@
 import NavLink from "../components/NavLink.astro";
 import NavBar from "../components/NavBar.astro";
 
-const facebook = "https://www.facebook.com/www.ellisbc.org/videos/"
+import FacebookProfile from "../links/FacebookProfile.astro"
+import PushPay from "../links/PushPay.astro";
+
+const media = FacebookProfile + "/videos/"
 ---
 
-<section class="w-full mx-6 mb-4 antialiased bg-white">
+<section class="w-full mb-4 antialiased bg-white">
     <div class="mx-auto max-w-7xl">
         <NavBar>
             <NavLink href="/">Home</NavLink>
             <NavLink href="/about/us">About Us</NavLink>
-            <NavLink href={facebook}>Media</NavLink>
-            <NavLink href="#_">Contact Us</NavLink>
+            <NavLink href={media}>Media</NavLink>
+            <NavLink href="contact/us">Contact Us</NavLink>
+            <NavLink href={PushPay}>Give Online</NavLink>
         </NavBar>
     </div>
 </section>

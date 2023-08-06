@@ -5,10 +5,10 @@ const { image } = Astro.props;
 <div id="main">
     <img
         src="/Brick-Texture.jpg"
-        class="mx-6 h-[45%] md:h-3/4"
+        class="mx-auto h-[45%] md:h-[35%] w-full"
     >
-    <div class="container w-full py-32 mx-8 p-0 text-left md:text-center opacity-100">
-        <h1 class="text-5xl font-bold leading-10 mx-2tracking-tight text-gray-900 text-center sm:text-6xl md:text-7xl lg:text-8xl">
+    <div class="container w-full p-0 text-left md:text-center opacity-100">
+        <h1 class="text-5xl font-bold leading-10 mx-2 pt-6 tracking-tight text-gray-900 text-center sm:text-6xl md:text-7xl lg:text-8xl">
             "... speaking the 
             <br class="hidden sm:block">
             truth in love"
@@ -16,12 +16,12 @@ const { image } = Astro.props;
         <div class="mx-auto mt-5 text-md text-gray-600 md:mt-8 md:max-w-lg text-center md:text-xl">A church devoted to furthering the Gospel.</div>
         <div class="flex flex-col items-center justify-center mt-8 space-y-4 text-center sm:flex-row sm:space-y-0 sm:space-x-4">
             <span class="relative inline-flex w-full md:w-auto">
-                <a href="#_" class="inline-flex items-center justify-center w-3/4 mx-auto px-8 py-4 text-base font-medium leading-6 text-white bg-gray-900 border border-transparent rounded-full xl:px-10 sm:w-auto hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
+                <a href="/about/us" class="inline-flex items-center justify-center w-3/4 mx-auto px-8 py-4 text-base font-medium leading-6 text-white bg-gray-900 border border-transparent rounded-full xl:px-10 sm:w-auto hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
                     About Us
                 </a>
             </span>
             <span class="relative inline-flex w-full md:w-auto">
-                <a href="#_" class="inline-flex items-center justify-center w-3/4 mx-auto px-8 py-4 text-base font-medium leading-6 text-gray-900 bg-gray-100 border border-transparent rounded-full xl:px-10 sm:w-auto hover:bg-gray-200 outline-none ring-2 ring-gray-200">Contact Us</a>
+                <a href="/contact/us" class="inline-flex items-center justify-center w-3/4 mx-auto px-8 py-4 text-base font-medium leading-6 text-gray-900 bg-gray-100 border border-transparent rounded-full xl:px-10 sm:w-auto hover:bg-gray-200 outline-none ring-2 ring-gray-200">Contact Us</a>
             </span>
         </div>
     </div>
