@@ -1,0 +1,21 @@
+---
+import AccordianItem from "./AccordianItem.astro"
+const { title } = Astro.props;
+---
+
+<section class="w-full">
+    <div class="container px-2 py-8 mx-auto flex flex-col">
+        <h1 class="mx-auto font-bold text-black text-4xl">{ title }</h1>
+    </div>
+    
+
+    <div x-data="{ 
+        activeAccordion: '', 
+        setActiveAccordion(id) { 
+            this.activeAccordion = (this.activeAccordion == id) ? '' : id 
+        } 
+    }" class="relative w-3/4 mx-auto text-md my-6">
+
+    <slot></slot>
+
+</section>

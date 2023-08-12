@@ -3,5 +3,132 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout title="About Us">
+    <div class="flex w-3/4 mx-auto justify-center">
+        <div class="py-12">
+            <h2 class="text-2xl font-bold text-center">Contact Us!</h2>
+                <form id="contact" onsubmit="return false;">
+                    <div class="mt-8">
+                        <div class="grid grid-cols-1 gap-6">
 
+                            <div class="flex flex-row gap-6">
+                                <label class="block">
+                                    <span class="text-gray-700">First Name</span>
+                                    <input
+                                        type="text"
+                                        placeholder=""
+                                        class="
+                                            border-2
+                                            mt-1 
+                                            p-2 
+                                            block 
+                                            w-full
+                                            rounded-md 
+                                            border-gray-300 
+                                            shadow-sm 
+                                            focus:border-indigo-300 
+                                            focus:ring 
+                                            focus:ring-indigo-200 
+                                            focus:ring-opacity-50
+                                        "
+                                    >
+                                </label>
+            
+                                <label class="block">
+                                    <span class="text-gray-700">Last Name</span>
+                                    <input
+                                        type="text"
+                                        placeholder=""
+                                        class="
+                                            border-2 
+                                            mt-1 
+                                            p-2 
+                                            block 
+                                            w-full 
+                                            rounded-md 
+                                            border-gray-300 
+                                            shadow-sm 
+                                            focus:border-indigo-300 
+                                            focus:ring 
+                                            focus:ring-indigo-200 
+                                            focus:ring-opacity-50
+                                        "
+                                    >
+                                </label>
+                            </div>
+
+                            
+                            <label class="block">
+
+                                <span class="text-gray-700">Email address</span>
+                                <input 
+                                    type="email"
+                                    placeholder="email@example.com"
+                                    class="
+                                        border-2
+                                        mt-1 
+                                        p-2 
+                                        block 
+                                        w-full 
+                                        rounded-md 
+                                        border-gray-300 
+                                        shadow-sm 
+                                        focus:border-indigo-300 
+                                        focus:ring 
+                                        focus:ring-indigo-200 
+                                        focus:ring-opacity-50
+                                    "
+                                >
+                            </label>
+
+                            <label class="block">
+                                <span class="text-gray-700">Message</span>
+                                <textarea
+                                    rows="5"
+                                    class="
+                                        border-2
+                                        p-2
+                                        mt-1
+                                        block
+                                        w-full
+                                        rounded-md
+                                        border-gray-300
+                                        shadow-sm
+                                        focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
+                                    "
+                                >
+                            </textarea>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="flex mt-6 justify-end">
+                        <button 
+                            class="
+                                inline-flex
+                                text-white 
+                                bg-indigo-500 
+                                border-0 
+                                py-2 
+                                px-6 
+                                focus:outline-none 
+                                hover:bg-indigo-600 
+                                rounded 
+                                text-lg
+                            "
+                        >
+                            Submit
+                        </button>
+                    </div>
+            </form>
+        </div>
+    </div>
 </Layout>
+
+<script>
+    
+    function handleSubmit() {
+        let form = document.forms[index];
+        console.log(form)
+        // let firstName = form.elements['firstname'];
+
+    }
+</script>

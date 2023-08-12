@@ -1,0 +1,23 @@
+---
+import Profile from "./Profile.astro";
+const { title } = Astro.props;
+
+---
+<Profile title={title}>
+  <div class="flex flex-col items-center sm:flex-row">
+    <div class="w-2/3 sm:w-1/2 text-center sm:pr-8 sm:py-8">
+      <div class="inline-flex items-center justify-center">
+
+        <div class="flex h-full w-full shadow-md">
+          <slot name="image"></slot>
+        </div>
+      
+      </div>
+    </div>
+    <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l-2 border-gray-400 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-left md:text-center">
+      
+      <slot name="content"></slot>
+    
+    </div>
+  </div>
+</Profile>

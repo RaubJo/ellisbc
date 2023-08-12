@@ -1,47 +1,76 @@
 ---
 import Button from '../../components/Button.astro';
 import Layout from '../../layouts/Layout.astro';
+import RightProfile from '../../components/LeftProfile.astro';
 import type Beliefs from './beliefs.astro';
+import LeftProfile from '../../components/RightProfile.astro';
+import RightContent from '../../components/RightContent.astro';
+import Grid from '../../components/Grid.astro';
+import Staff from '../../components/Staff.astro';
 ---
 
 <Layout title="About Us">
-    <div class="flex flex-col md:flex-row justify-evenly m-6">
+    <div class="flex flex-col md:flex-row justify-evenly m-6 items-center">
         <Button text="How Can I Be Saved?" href="/about/salvation" />
         <Button text="What we Believe" href="/about/beliefs" />
     </div>
     <div class="text-center w-3/4 mx-auto border-t-2 pt-2">
-        <h1 class="text-2xl font-bold my-8">About Ellis Baptist Church</h1>
-        <p class="my-4 text-xl">Our desire at Ellis Baptist Church is to share the Gospel of Jesus Christ with others, make disciples, and worship Jesus with other believers together as a family.</p>
-        <p class="my-4 text-xl">We understand that God meets poeple wherever they are in their lives.</p>
-        <p class="my-4 text-xl">Our doors are open to meet your needs. Whether you are a visitor, a seeker, a new believer, or a longtime disciple. All are welcomed and loved.</p>
-        <p class="my-4 text-xl">We use the KJV in our preaching and teaching.</p>
-        <p class="my-4 text-xl">Our focus is on bringing honor and glory to Jesus Christ.</p>
-        <p class="my-4 text-xl">We strive for personal holiness, but recognize that we are fallen creatures.</p>
-        <p class="my-4 text-xl">We are commanded to "...speak the truth in love." Eph 4:15.</p>
-        <p class="my-4 text-xl">We practice two ordinances as given in Scripture: baptism and the Lord's Supper.</p>
+        
     </div>
-    <div class="my-8 border-t-2 pt-2 w-3/4 mx-auto">
-        <h1 class="text-center mx-auto text-2xl font-bold my-6">Our Pastor</h1>
-        <div class="flex w-3/4 mx-auto">
-            <div class="flex flex-col md:flex-row">
-                <div class="w-[60%] mx-4">
-                    <img
-                        src="/about-pastor.jpg"
-                        class="mt-4"
-                    />
-                </div>
-                <div class="w-1/2 mx-6">
-                    <p class="my-2">Pastor Chad Pritchett was saved when he was 15 years old.</p>
-                    <p class="my-2">After college, he joined the Army and served in both the Gulf and Iraq wars.</p>
-                    <p class="my-2">After returning home from Iraq, he heard God remindings him of his call to preach the Gospel.</p>
-                    <p class="my-2">After much prayer, the Pritchett family surrendered to the ministry and moved to Ellis, Ks to serve as the pastor of Ellis Baptist Church in July 2013.</p>
-                    <p class="my-2">Chad and his wife, Tricia, have been married since 1991.</p>
-                    <p class="my-2">They have 5 children, Colin, Brittany, Ryan, Lauren, and Michael.</p>
-                    <p class="my-2">Chad and Tricia feel truly blessed to be a part of the family at Ellis Baptist Church.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <RightProfile title="Our Church">
+        <img slot="image" class="object-cover object-center w-full h-full" src="https://dummyimage.com/750x750"/>
+        <ul slot="content" class="text-center md:text-left list-disc text-xl mb-4 leading-relaxed">
+            <li>At Ellis Baptist Church our goal is to <strong>share</strong> the Gospel of Jesus Christ with others, <strong>make</strong> disciples, and <strong>worship</strong> Jesus with other believers together as a family.</li>
+            <li>We understand that God meets poeple wherever they are in their lives.</li>
+            <li>Our doors are open to meet your needs. Whether you are a visitor, a seeker, a new believer, or a longtime disciple. All are welcomed and loved.</li>
+            <li>We use the KJV in our preaching and teaching.</li>
+            <li>Our focus is on bringing honor and glory to Jesus Christ.</li>
+            <li>We strive for personal holiness, but recognize that we are fallen creatures.</li>
+            <li>We are commanded to "...speak the truth in love." Eph 4:15.</li>
+            <li>We practice two ordinances as given in Scripture: baptism and the Lord's Supper.</li>
+        </ul>
+    </RightProfile>
+    <LeftProfile title="Our Pastor">
+        <img slot="image" alt="content" class="object-cover object-center h-full w-full rounded-md shadow-md" src="/about-pastor.jpg">
+        <p slot="content" class="leading-relaxed text-lg mb-4">
+            Pastor Chad Pritchett was saved when he was 15 years old.
+            After college, he joined the Army and served in both the Gulf and Iraq wars.
+            In 2013, the Pritchett family moved to Ellis, Ks and Chad began serving as senior pastor of Ellis Baptist Church.
+            Chad and his wife, Tricia, have been married since 1991.
+            They have 5 children, Colin, Brittany, Ryan, Lauren, and Michael.
+            They also have 5 grandchildren: Ellie, Cayden, Laykin, Lizzie, Bell.
+            Chad and Tricia feel truly blessed to be a part of the family at Ellis Baptist Church.
+        </p>
+    </LeftProfile>
+    <Grid title="Our Ministers">
+        <Staff name="Colin Pritchett" position="Assistant Pastor" image="https://dummyimage.com/200x200">
+            Colin pritchett is our Assistant Pastor.
+        </Staff>
+        <Staff name="Josh McIntyre" position="Children's Minister" image="https://dummyimage.com/200x200">
+            Josh McIntyre is our Children's Minister.
+        </Staff>
+        <Staff name="Joseph Raub" position="Missions Intern" image="https://dummyimage.com/200x200">
+            Joseph Raub is our Missions Intern.
+        </Staff>
+        <Staff name="Monty Cox" position="Youth Minister" image="https://dummyimage.com/200x200">
+            Monty Cox is our Youth Minister.
+        </Staff>
+        <Staff name="Nathen Cox" position="Youth Minister" image=https://dummyimage.com/200x200">
+            Nathen Cox is also our Youth Minister.
+        </Staff>
+        <Staff name="Karin Polifka" position="1st - 3rd Sunday School" image="https://dummyimage.com/200x200">
+            Mrs. Karin teaches our <span class="whitespace-nowrap">1st - 3rd</span> Sunday School Class.
+        </Staff>
+        <Staff name="Olavee Raub" position="4th - 6th Sunday School" image="https://dummyimage.com/200x200">
+            Olavee Raub teaches our <span class="whitespace-nowrap">4th - 6th</span> Sunday School Class.
+        </Staff>
+    </Grid>
+    <Grid title="Our Deacons">
+        <Staff name="Aaron Younger" image="https://dummyimage.com/200x200"></Staff>
+        <Staff name="Mark Polifka" image="https://dummyimage.com/200x200"></Staff>
+        <Staff name="Brian Raub" image="https://dummyimage.com/200x200"></Staff>
+        <Staff name="Monty Cox" image="https://dummyimage.com/200x200"></Staff>
+    </Grid>
     <div class="my-8 border-t-2 pt-2 w-3/4 mx-auto">
         <h1 class="text-xl font-bold text-center">If you would like more information about Ellis Baptist Church, please 
             <a href="/contact/us" class="underline">contact us</a>

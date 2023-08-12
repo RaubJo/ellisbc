@@ -9,26 +9,44 @@ const PastorEmail = "pastor@ellisbc.com"
 const email = "mailto:" + PastorEmail
 ---
 
-<section class="absolute bottom-0 w-full lg:px-6 mt-8 antialiased bg-white">
-    <div class="flex flex-row mx-auto max-w-7xl border-t border-gray-300 justify-evenly">
-        <NavLink href="/">Home</NavLink>
-        <NavLink href="/about/us">About Us</NavLink>
-        <NavLink href={media}>Media</NavLink>
-        <NavLink href="/contact/us">Contact Us</NavLink>
-        <NavLink href={PushPay}>Give Online</NavLink>
-    </div>
-    <div class="flex flex-row justify-center mb-2">
-        <a href={FacebookProfile} class="mx-2">
-            <i class="fa-brands fa-facebook fa-lg opacity-60"></i>
-        </a>
-        <a href={email} class="mx-2">
-            <i class="fa-regular fa-envelope fa-lg opacity-60"></i>
-        </a>
-        <a href={YouTube} class="mx-2 hidden">
-            <i class="fa-brands fa-youtube fa-lg opacity-60"></i>
-        </a>
-    </div>
-    <div class="flex flex-row justify-center">
-        <span class="text-sm text-gray-500 py-4">Copyright <i class="fa-regular fa-copyright"></i> 2023 All Rights Reserved</span>
+<section class="bottom-0 w-full lg:px-6 mt-auto antialiased bg-white">
+    <div class="flex flex-col md:flex-row max-w-7xl p-2 border-t border-gray-300 items-center justify-between">
+        <div class="inline-flex justify-start items-center">
+
+            <div class="flex flex-col border-b-2 md:border-b-0 md:border-r-2 border-gray-300">
+                <h1 class="mx-2 p-2 font-bold whitespace-nowrap">Ellis Baptist Church</h1>
+                <div>
+                    <div class="flex flex-row justify-center">
+                        {FacebookProfile &&
+                        <a href={FacebookProfile} class="mx-2">
+                            <i class="fa-brands fa-facebook fa-lg opacity-60"></i>
+                        </a>
+                        }
+                        {PastorEmail &&
+                        <a href={email} class="mx-2">
+                            <i class="fa-regular fa-envelope fa-lg opacity-60"></i>
+                        </a>
+                        }
+                        {YouTube &&
+                        <a href={YouTube} class="mx-2">
+                            <i class="fa-brands fa-youtube fa-lg opacity-60"></i>
+                        </a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <span class="hidden md:inline-flex text-sm text-gray-500 p-2 items-center whitespace-nowrap">Copyright <i class="fa-regular fa-copyright m-1"></i> 2023 All Rights Reserved</span>
+        </div>
+        <div class="inline-flex justify-end items-center w-full lg:w-1/2">
+            <div class="flex flex-col sm:flex-row justify-evenly w-full">
+                <NavLink href="/">Home</NavLink>
+                <NavLink href="/about/us">About Us</NavLink>
+                <NavLink href={media}>Media</NavLink>
+                <NavLink href="/contact/us">Contact Us</NavLink>
+                <NavLink href={PushPay}>Give Online</NavLink>
+            </div>
+        </div>
+        <span class="md:hidden text-sm text-gray-500 p-2 border-t-2 sm:border-t-0 border-gray-300">Copyright <i class="fa-regular fa-copyright m-1"></i> 2023 All Rights Reserved</span>
     </div>
 </section>

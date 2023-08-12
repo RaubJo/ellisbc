@@ -12,6 +12,7 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <script src="https://kit.fontawesome.com/ac5abb0b05.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -21,7 +22,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="relative min-h-screen">
+	<body class="flex flex-col min-h-screen">
 		<Header></Header>
 		<slot />
 		<Footer></Footer>
@@ -36,7 +37,7 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
+		background-color: white;
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
