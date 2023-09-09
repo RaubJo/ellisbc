@@ -1,0 +1,61 @@
+image: node:18-alpine
+
+# This folder is cached between builds
+# https://docs.gitlab.com/ee/ci/yaml/index.html#cache
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - build
+  - preview
+  - production
+
+build:
+  except:
+    - /^\d+\.\d+-.*$/
+  stage: build
+  artifacts:
+    paths:
+      - dist/
+  script:
+    - npm install
+    - npm run build
+ 
+deploy:
+  only: 
+    - dev-master
+    - master
+    - /^\d+\.\d+\.\d+$/
+    - /^\d+\.\d+$/
+  stage: preview
+  environment:
+    name: production
+    url:  $PROD_URL
+  dependencies:
+    - build
+  variables:
+    CLOUFLARE_PROJECT_NAME: $CLOUFLARE_PROJECT_NAME
+    CLOUDFLARE_API_TOKEN:   $CLOUDFLARE_API_TOKEN
+    CLOUDFLARE_ACCOUNT_ID:  $CLOUDFLARE_ACCOUNT_ID
+  script:
+    - CLOUDFLARE_API_TOKEN=$CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$CLOUDFLARE_ACCOUNT_ID npx wrangler pages deploy ./dist --project-name $CLOUDFLARE_PROJECT_NAME --branch dev
+
+release:
+  only: 
+    - master
+    - /^\d+\.\d+\.\d+$/
+    - /^\d+\.\d+$/
+  stage: production
+  when: manual
+  environment:
+    name: production
+    url:  $PROD_URL
+  dependencies:
+    - build
+  variables:
+    CLOUFLARE_PROJECT_NAME: $CLOUFLARE_PROJECT_NAME
+    CLOUDFLARE_API_TOKEN:   $CLOUDFLARE_API_TOKEN
+    CLOUDFLARE_ACCOUNT_ID:  $CLOUDFLARE_ACCOUNT_ID
+  script:
+    - CLOUDFLARE_API_TOKEN=$CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$CLOUDFLARE_ACCOUNT_ID npx wrangler pages deploy ./dist
