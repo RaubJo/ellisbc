@@ -24,8 +24,8 @@ build:
  
 deploy:
   only: 
-    - dev-master
-    - master
+    - develop
+    - main
     - /^\d+\.\d+\.\d+$/
     - /^\d+\.\d+$/
   stage: preview
@@ -43,7 +43,7 @@ deploy:
 
 release:
   only: 
-    - master
+    - main
     - /^\d+\.\d+\.\d+$/
     - /^\d+\.\d+$/
   stage: production
