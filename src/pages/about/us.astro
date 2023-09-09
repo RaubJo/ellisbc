@@ -1,12 +1,10 @@
 ---
-import Button from '../../components/Button.astro';
+import Button from '../../components/Button.jsx';
 import Layout from '../../layouts/Layout.astro';
-import RightProfile from '../../components/LeftProfile.astro';
-import type Beliefs from './beliefs.astro';
-import LeftProfile from '../../components/RightProfile.astro';
-import RightContent from '../../components/RightContent.astro';
-import Grid from '../../components/Grid.astro';
-import Staff from '../../components/Staff.astro';
+import RightProfile from '../../components/RightProfile.jsx';
+import LeftProfile from '../../components/LeftProfile.jsx';
+import Grid from '../../components/Grid';
+import Staff from '../../components/Staff.jsx';
 ---
 
 <Layout title="About Us">
@@ -17,7 +15,7 @@ import Staff from '../../components/Staff.astro';
     <div class="text-center w-3/4 mx-auto border-t-2 pt-2">
         
     </div>
-    <RightProfile title="Our Church">
+    <LeftProfile title="Our Church">
         <img slot="image" class="object-cover object-center w-full h-full" src="https://dummyimage.com/750x750"/>
         <ul slot="content" class="text-center md:text-left list-disc text-xl mb-4 leading-relaxed">
             <li>At Ellis Baptist Church our goal is to <strong>share</strong> the Gospel of Jesus Christ with others, <strong>make</strong> disciples, and <strong>worship</strong> Jesus with other believers together as a family.</li>
@@ -29,9 +27,9 @@ import Staff from '../../components/Staff.astro';
             <li>We are commanded to "...speak the truth in love." Eph 4:15.</li>
             <li>We practice two ordinances as given in Scripture: baptism and the Lord's Supper.</li>
         </ul>
-    </RightProfile>
-    <LeftProfile title="Our Pastor">
-        <img slot="image" alt="content" class="object-cover object-center h-full w-full rounded-md shadow-md" src="/about-pastor.jpg">
+    </LeftProfile>"
+    <RightProfile title="Our Pastor" image="/profiles/8.png">
+        <!-- <img slot="image" alt="content" class="object-cover object-center h-full w-full rounded-md shadow-md" src="/profiles/1080/8.png"> -->
         <p slot="content" class="leading-relaxed text-lg mb-4">
             Pastor Chad Pritchett was saved when he was 15 years old.
             After college, he joined the Army and served in both the Gulf and Iraq wars.
@@ -41,40 +39,35 @@ import Staff from '../../components/Staff.astro';
             They also have 5 grandchildren: Ellie, Cayden, Laykin, Lizzie, Bell.
             Chad and Tricia feel truly blessed to be a part of the family at Ellis Baptist Church.
         </p>
-    </LeftProfile>
+    </RightProfile>
     <Grid title="Our Ministers">
-        <Staff name="Colin Pritchett" position="Assistant Pastor" image="https://dummyimage.com/200x200">
+        <Staff name="Colin Pritchett" position="Assistant Pastor" image="/profiles/6.png" data=>
             Colin pritchett is our Assistant Pastor.
         </Staff>
-        <Staff name="Josh McIntyre" position="Children's Minister" image="https://dummyimage.com/200x200">
+        <Staff name="Josh McIntyre" position="Children's Minister" image="/profiles/4.png">
             Josh McIntyre is our Children's Minister.
         </Staff>
-        <Staff name="Joseph Raub" position="Missions Intern" image="https://dummyimage.com/200x200">
+        <Staff name="Joseph Raub" position="Missions Intern" image="/profiles/5.png">
             Joseph Raub is our Missions Intern.
         </Staff>
-        <Staff name="Monty Cox" position="Youth Minister" image="https://dummyimage.com/200x200">
+        <Staff name="Monty Cox" position="Youth Minister" image="/profiles/1.png">
             Monty Cox is our Youth Minister.
         </Staff>
-        <Staff name="Nathen Cox" position="Youth Minister" image=https://dummyimage.com/200x200">
+        <Staff name="Nathen Cox" position="Youth Minister" image="/profiles/2.png">
             Nathen Cox is also our Youth Minister.
         </Staff>
-        <Staff name="Karin Polifka" position="1st - 3rd Sunday School" image="https://dummyimage.com/200x200">
+        <Staff name="Karin Polifka" position="1st - 3rd Sunday School" image="/profiles/3.png">
             Mrs. Karin teaches our <span class="whitespace-nowrap">1st - 3rd</span> Sunday School Class.
         </Staff>
-        <Staff name="Olavee Raub" position="4th - 6th Sunday School" image="https://dummyimage.com/200x200">
+        <Staff name="Olavee Raub" position="4th - 6th Sunday School" image="/profiles/7.png">
             Olavee Raub teaches our <span class="whitespace-nowrap">4th - 6th</span> Sunday School Class.
         </Staff>
     </Grid>
     <Grid title="Our Deacons">
-        <Staff name="Aaron Younger" image="https://dummyimage.com/200x200"></Staff>
-        <Staff name="Mark Polifka" image="https://dummyimage.com/200x200"></Staff>
-        <Staff name="Brian Raub" image="https://dummyimage.com/200x200"></Staff>
-        <Staff name="Monty Cox" image="https://dummyimage.com/200x200"></Staff>
+        <Staff name="Aaron Younger" image="/profiles/9.png"></Staff>
+        <Staff name="Mark Polifka" image="/profiles/3.png"></Staff>
+        <Staff name="Brian Raub" image="/profiles/7.png"></Staff>
+        <Staff name="Monty Cox" image="/profiles/1.png"></Staff>
     </Grid>
-    <div class="my-8 border-t-2 pt-2 w-3/4 mx-auto">
-        <h1 class="text-xl font-bold text-center">If you would like more information about Ellis Baptist Church, please 
-            <a href="/contact/us" class="underline">contact us</a>
-            !
-        </h1>
-    </div>
+
 </Layout>
