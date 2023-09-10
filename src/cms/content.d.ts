@@ -1,48 +1,17 @@
-interface Profile
-{
+type Profile = {
     name: string;
     image_id: string;
     position?: Position;
 }
 
-interface Doctrine
-{
-    title: string;
-    text: string;
-    verses: Verse[];
-}
-
-interface Verse
-{
+type Verse = {
     reference: string;
     content: string;
 }
 
-interface NavBar
-{
-    logo_path: string;
-    header?: string;
-    links: NavLink[];
-}
 
-interface NavLink
-{
-    text: string;
-    to: string;
-}
 
-enum Position {
-    Pastor = "Pastor",
-    Assistant = "Assistant Pastor",
-    Children = "Children's Minister",
-    Mission = "Missions Intern",
-    Youth = "Youth Minister",
-    Primary = "1st - 3rd Sunday School",
-    Secondary = "4th - 6th Sunday School"
-}
-
-interface Image
-{
+type Image = {
     id: string;
     path: string;
     altText: string;
@@ -59,3 +28,9 @@ enum ImageType
 }
 
 type Resolution = [int,int];
+
+type Doctrine = {
+    title: string;
+    content: string;
+    references: string[]
+};

@@ -1,47 +1,30 @@
 /** @type {import('tailwindcss').Config} */
+const { mauve, violet, sand } = require('@radix-ui/colors');
+
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
-			colors: {
-				material: {
-					50: '#fafafa',
-					100: '#f5f5f5',
-					200: '#eeeeee',
-					300: '#e0e0e0',
-					400: '#bdbdbd',
-					500: '#9e9e9e',
-					600: '#757575',
-					700: '#616161',
-					800: '#424242',
-					900: '#212121',
-				  },
-				  cloudflare: {
-					50: '#f7f7f8',
-					100: '#eaebeb',
-					200: '#d5d7d8',
-					300: '#b7bbbd',
-					400: '#92979b',
-					500: '#72777b',
-					600: '#62676a',
-					700: '#4e5255',
-					800: '#36393a',
-					900: '#1d1f20',
-				  },
-				  carbon: {
-					50: '#f3f3f3',
-					100: '#dcdcdc',
-					200: '#bebebe',
-					300: '#a4a4a4',
-					400: '#8c8c8c',
-					500: '#6f6f6f',
-					600: '#565656',
-					700: '#3d3d3d',
-					800: '#282828',
-					900: '#171717',
-				  },
-			}
+		  colors: {
+			...mauve,
+			...violet,
+			...sand,
+		  },
+		  keyframes: {
+			slideDown: {
+			  from: { height: 0 },
+			  to: { height: 'var(--radix-accordion-content-height)' },
+			},
+			slideUp: {
+			  from: { height: 'var(--radix-accordion-content-height)' },
+			  to: { height: 0 },
+			},
+		  },
+		  animation: {
+			slideDown: 'slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)',
+			slideUp: 'slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)',
+		  },
 		},
-	},
+	  },
 	plugins: [],
 }
