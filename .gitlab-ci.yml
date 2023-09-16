@@ -24,11 +24,12 @@ build:
  
 deploy:
   only: 
-    - develop
     - main
+    - develop
     - /^\d+\.\d+\.\d+$/
     - /^\d+\.\d+$/
-  stage: preview
+  stage: production
+  when: manual
   environment:
     name: production
     url:  $PROD_URL
@@ -39,7 +40,7 @@ deploy:
     CLOUDFLARE_API_TOKEN:   $CLOUDFLARE_API_TOKEN
     CLOUDFLARE_ACCOUNT_ID:  $CLOUDFLARE_ACCOUNT_ID
   script:
-    - CLOUDFLARE_API_TOKEN=$CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$CLOUDFLARE_ACCOUNT_ID npx wrangler pages deploy ./dist --branch develop --project-name $CLOUDFLARE_PROJECT_NAME
+    - CLOUDFLARE_API_TOKEN=$CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$CLOUDFLARE_ACCOUNT_ID npx wrangler pages deploy ./dist --project-name $CLOUDFLARE_PROJECT_NAME
 
 release:
   only: 
