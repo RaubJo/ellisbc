@@ -1,6 +1,6 @@
 type Profile = {
     name: string;
-    image_id: string;
+    image_path: string;
     position?: Position;
 }
 

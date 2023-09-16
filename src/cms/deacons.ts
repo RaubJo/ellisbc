@@ -1,19 +1,19 @@
 const deacons: Profile[] = [
     {
         name: "Aaron Younger",
-        image_id: "aaron"
+        image_path: "aaron"
     },
     {
         name: "Mark Polifka",
-        image_id: "mark",
+        image_path: "mark",
     },
     {
         name: "Brian Raub",
-        image_id: "brian",
+        image_path: "brian",
     },
     {
         name: "Monty Cox",
-        image_id: "monty",
+        image_path: "monty",
     }
 ];
 

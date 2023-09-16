@@ -9,5 +9,5 @@ import react from "@astrojs/react";
 export default defineConfig({
   output: "server",
   adapter: cloudflare(),
-  integrations: [alpinejs(), tailwind(), react()]
+  integrations: [alpinejs(), tailwind(), react()],
 });
