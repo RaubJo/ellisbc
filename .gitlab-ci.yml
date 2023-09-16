@@ -1,4 +1,4 @@
-image: node:18-alpine
+image: node:latest
 
 # This folder is cached between builds
 # https://docs.gitlab.com/ee/ci/yaml/index.html#cache
@@ -21,7 +21,6 @@ build:
   script:
     - npm install
     - npm run build
- 
 deploy:
   only: 
     - main
@@ -35,11 +34,13 @@ deploy:
   dependencies:
     - build
   variables:
+    CLOUDFLARE_ACCOUNT_ID: $CLOUDFLARE_ACCOUNT_ID
+    CLOUDFLARE_API_TOKEN: $CLOUDFLARE_API_TOKEN
+    CF_ZONE_ID: $CLOUDFLARE_ZONE_ID
     CLOUDFLARE_PROJECT_NAME: $CLOUDFLARE_PROJECT_NAME
-    CLOUDFLARE_API_TOKEN:   $CLOUDFLARE_API_TOKEN
-    CLOUDFLARE_ACCOUNT_ID:  $CLOUDFLARE_ACCOUNT_ID
   script:
-    - CLOUDFLARE_API_TOKEN=$CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$CLOUDFLARE_ACCOUNT_ID npx wrangler pages deploy ./dist --branch dev --project-name $CLOUDFLARE_PROJECT_NAME
+    - env
+    - npx wrangler pages deploy ./dist --branch dev --project-name $CLOUDFLARE_PROJECT_NAME
 
 release:
   only: 
