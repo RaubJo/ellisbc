@@ -1,13 +1,14 @@
 ---
 import Header from './Header.astro'
-import Footer from './Footer.astro'
+import Footer from './Footer.jsx'
 import Hero from './Hero.astro';
-
+import links from '@cms/links';
 export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
+
 ---
 
 <!DOCTYPE html>
@@ -26,9 +27,9 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="flex flex-col min-h-screen">
-		<Header></Header>
+		<Header links={links}></Header>
 		<slot />
-		<Footer></Footer>
+		<Footer navigation={links} />
 	</body>
 </html>
 

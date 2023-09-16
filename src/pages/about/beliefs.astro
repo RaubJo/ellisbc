@@ -7,5 +7,5 @@ const beliefs = (await cmsClient.fetch('beliefs')) as Doctrine[];
 ---
 
 <Layout title="Our Beliefs">
-    <DoctrineAccordion beliefs={beliefs} client:load ></DoctrineAccordion>
+    <DoctrineAccordion data={beliefs} client:load ></DoctrineAccordion>
 </Layout>

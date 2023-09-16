@@ -4,9 +4,9 @@ import Layout from '../../layouts/Layout.astro';
 import RightProfile from '../../components/RightProfile.jsx';
 import LeftProfile from '../../components/LeftProfile.jsx';
 import Grid from '../../components/Grid';
-import Staff from '../../components/Staff.jsx';
 import ministers from '@cms/ministers';
 import deacons from '@cms/deacons'
+
 ---
 
 <Layout title="About Us">
@@ -42,7 +42,7 @@ import deacons from '@cms/deacons'
             Chad and Tricia feel truly blessed to be a part of the family at Ellis Baptist Church.
         </p>
     </RightProfile>
-    <Grid title="Our Ministers" data={ministers} client:only/>
-    <Grid title="Our Deacons" data={deacons} />
+    <Grid title="Our Ministers" data={ministers} client:only="react"/>
+    <Grid title="Our Deacons" data={deacons} client:load/>
 
 </Layout>

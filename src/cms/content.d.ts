@@ -34,3 +34,8 @@ type Doctrine = {
     content: string;
     references: string[]
 };
+
+type Link = {
+    text: string;
+    href: string;
+}

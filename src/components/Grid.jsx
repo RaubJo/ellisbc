@@ -9,14 +9,8 @@ export default class extends Component
     this.state = {
       title: props.title,
       description: props.description,
-      data: props.data
+      data: _.filter(props.data, (minister) => (minister.position != 'Pastor'))
     }
-  }
-
-  componentDidMount() {
-    this.setState({
-      data: _.filter(this.state.data, (minister) => (minister.position != 'Pastor'))
-    })
   }
 
   render() {
