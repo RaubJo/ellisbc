@@ -7,7 +7,7 @@ import _ from 'lodash';
 function DoctrineAccordion({data}) {
   return (
     <Accordion.Root
-      className='bg-white w-full lg:w-3/4 mx-auto rounded-md shadow-[0_2px_10px] shadow-black/5'
+      className='bg-white w-full md:3/4 lg:w-1/2 mx-auto rounded-md shadow-[0_2px_10px] shadow-black/5'
       type="multiple"
       collapsible="true"
     >

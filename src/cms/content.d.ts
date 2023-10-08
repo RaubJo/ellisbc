@@ -38,4 +38,5 @@ type Doctrine = {
 type Link = {
     text: string;
     href: string;
+    links?: Link;
 }

@@ -1,8 +1,8 @@
 export default function Map()
 {
     return (
-        <div className="mx-6">
-            <div className="my-4 h-[32rem] mb-8">
+        <div className="w-full mx-auto m-2 items-center">
+            <div className="h-[32rem]">
                 <div className="w-full h-full max-w-full">
                     <iframe
                         className="h-full w-full border-0 max-w-full"

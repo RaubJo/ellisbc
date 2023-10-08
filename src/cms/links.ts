@@ -9,7 +9,7 @@ const links: Link[] = [
     },
     {
         text: "Media",
-        href: "https://www.facebook.com/ellisbc.org/videos/"
+        href: "https://www.facebook.com/www.ellisbc.org/videos/"
     },
     {
         text: "Contact Us",

@@ -1,8 +1,10 @@
-export default function CenteredContentRow(props)
+import classNames from "classnames"
+
+export default function CenteredContentRow({children, className})
 {
     return (
-        <div className="flex flex-col md:flex-row justify-items-center bg-gray-200 mx-6 p-4 mb-8 rounded-md">
-            {props.children}
+        <div className={classNames("w-full flex flex-col md:flex-row justify-self-center justify-items-center bg-gray-200 p-4 mb-8 rounded-md", className)}>
+            {children}
         </div>
     )
 }

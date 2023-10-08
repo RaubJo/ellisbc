@@ -29,7 +29,7 @@ export default class extends Component
     render() {
         return (
             <section className="bottom-0 w-full lg:px-6 mt-auto antialiased bg-white">
-                <div className="flex flex-col md:flex-row max-w-7xl p-2 mt-8 border-t border-gray-300 items-center justify-between">
+                <div className="flex flex-col md:flex-row p-2 mt-8 border-t border-gray-300 items-center justify-between">
                     <div className="inline-flex justify-start items-center">
                         <div className="flex flex-col border-b-2 md:border-b-0 md:border-r-2 border-gray-300">
                             <h1 className="mx-2 p-2 font-bold whitespace-nowrap">{this.state.title}</h1>
