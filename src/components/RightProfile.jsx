@@ -22,7 +22,7 @@ export default function RightProfile(props)
         <div className="flex w-1/2 text-center pl-8 py-8">
           <div className="w-full inline-flex items-center align-middle justify-center">
       
-            <div className="flex h-full w-full shadow-md">
+            <div className="hidden sm:flex h-full w-full shadow-md">
               <img alt="Minister Image" className="object-cover h-full w-full rounded-md" src={props.image}/>
             </div>
       

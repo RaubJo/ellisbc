@@ -43,7 +43,7 @@ export default class extends Component
                     }
                     <div className="flex flex-row justify-evenly sm:justify-between">
                         <div className="flex items-center justify-evenly sm:justify-start h-full ml-4 lg:mx-4 text-black">
-                            <a href="/"><span className="flex mx-auto md:mr-4 text-lg sm:text-3xl lg:text-2xl font-bold text-black whitespace-nowrap">{this.state.title}</span></a>
+                            <a href="/"><span className="hidden lg:flex mx-auto md:mr-4 text-lg sm:text-3xl lg:text-2xl font-bold text-black whitespace-nowrap">{this.state.title}</span></a>
                         </div>
                     </div>
                     <div className="hidden md:flex flex-row justify-end container relative mx-4 w-full items-center whitespace-nowrap">
@@ -60,9 +60,9 @@ export default class extends Component
                     {this.state.mobileMenu.active &&
                         <motion.div 
                             className="flex flex-col w-auto mr-0 ml-0 mx-auto"
-                            initial={{ opacity: 0, y: 0, x: -100}}
+                            initial={{ opacity: 0, y: 0, x: -200}}
                             animate={{ opacity: 1, y: 0, x: 0 }}
-                            exit={{ opacity: 0, y: 0, x: -100}}
+                            exit={{ opacity: 0, y: 0, x: -200}}
                         >
                             <ul className="font-medium flex flex-col p-4 md:p-0 mt-0 shadow-lg bg-white md:flex-row md:space-x-8 md:mt-0 md:border-0">
                                 {_.map(this.state.links, (link) => (
