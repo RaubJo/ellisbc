@@ -1,7 +1,8 @@
 ---
-import NavLink from "../components/NavLink.astro";
-import NavBar from "../components/NavBar.astro";
+import NavLink from "../components/NavLink.jsx";
+import NavBar from "../components/Navigation/Bar.jsx";
 
+import links from "@cms/links";
 
 const FacebookProfile = "https://www.facebook.com/www.ellisbc.org"
 const PushPay = "https://pushpay.com/g/ellisbc?src=hpp"
@@ -9,13 +10,7 @@ const media = FacebookProfile + "/videos/"
 ---
 
 <section class="w-full mb-4 antialiased bg-white">
-    <div class="mx-auto max-w-7xl">
-        <NavBar>
-            <NavLink href="/">Home</NavLink>
-            <NavLink href="/about/us">About Us</NavLink>
-            <NavLink href={media}>Media</NavLink>
-            <NavLink href="/contact/us">Contact Us</NavLink>
-            <NavLink href={PushPay}>Give Online</NavLink>
-        </NavBar>
+    <div class="mx-auto">
+        <NavBar links={links} client:only="react" />
     </div>
 </section>

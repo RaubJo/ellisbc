@@ -1,4 +1,4 @@
-image: node:18-alpine
+image: node:latest
 
 # This folder is cached between builds
 # https://docs.gitlab.com/ee/ci/yaml/index.html#cache
@@ -21,27 +21,25 @@ build:
   script:
     - npm install
     - npm run build
- 
 deploy:
   only: 
-    - develop
     - master
+    - dev-master
     - /^\d+\.\d+\.\d+$/
     - /^\d+\.\d+$/
-  stage: preview
+  stage: production
   environment:
     name: production
     url:  $PROD_URL
   dependencies:
     - build
   variables:
-    CLOUFLARE_PROJECT_NAME: $CLOUDFLARE_PROJECT_NAME
-    CLOUDFLARE_API_TOKEN:   $CLOUDFLARE_API_TOKEN
-    CLOUDFLARE_ACCOUNT_ID:  $CLOUDFLARE_ACCOUNT_ID
+    CLOUDFLARE_ACCOUNT_ID: $CLOUDFLARE_ACCOUNT_ID
+    CLOUDFLARE_API_TOKEN: $CLOUDFLARE_API_TOKEN
     CF_ZONE_ID: $CLOUDFLARE_ZONE_ID
+    CLOUDFLARE_PROJECT_NAME: $CLOUDFLARE_PROJECT_NAME
   script:
-    - env
-    - CLOUDFLARE_API_TOKEN=$CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$CLOUDFLARE_ACCOUNT_ID npx wrangler pages deploy ./dist --project-name $CLOUDFLARE_PROJECT_NAME --branch dev
+    - CLOUDFLARE_API_TOKEN=$CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$CLOUDFLARE_ACCOUNT_ID npx wrangler pages deploy ./dist --branch dev --project-name $CLOUDFLARE_PROJECT_NAME
 
 release:
   only: 
@@ -56,8 +54,9 @@ release:
   dependencies:
     - build
   variables:
-    CLOUFLARE_PROJECT_NAME: $CLOUDFLARE_PROJECT_NAME
+    CLOUDFLARE_PROJECT_NAME: $CLOUDFLARE_PROJECT_NAME
     CLOUDFLARE_API_TOKEN:   $CLOUDFLARE_API_TOKEN
     CLOUDFLARE_ACCOUNT_ID:  $CLOUDFLARE_ACCOUNT_ID
   script:
     - CLOUDFLARE_API_TOKEN=$CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$CLOUDFLARE_ACCOUNT_ID npx wrangler pages deploy ./dist --project-name $CLOUDFLARE_PROJECT_NAME
+
