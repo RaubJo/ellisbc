@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../layouts/Hero.astro';
 import CenteredContentRow from '../components/CenteredContentRow.jsx';
 import Map from '../components/Map.jsx';
-import Footer from '../layouts/Footer.astro';
 import Card from '../components/Card';
 import Pastor from '/pastor.jpg';
 import Button from '../components/Button.jsx';
@@ -11,9 +10,11 @@ import Button from '../components/Button.jsx';
 ---
 
 <Layout title="Ellis Baptist Church">
-	<Hero></Hero>
-	<main class="mx-auto p-6 w-full lg:w-1/2 items-center">
-		<div class="flex-inline justify-center m-6 gap-2 items-stretch text-center md:flex">
+	<img src="/Brick-Texture.jpg" class="-z-10 opacity-75 fixed h-full w-full"/>
+
+	<main class="mx-auto w-5/6 lg:w-3/4 items-center">
+		<Hero></Hero>
+		<div class="flex-inline justify-center mt-8 gap-2 items-stretch text-center md:flex">
 			<div class="px-auto mb-4 md:basis-1/3">
 				<Card
 					url="https://www.facebook.com/www.ellisbc.org/videos/"

@@ -29,7 +29,7 @@ export default class extends Component
     render() {
         return (
             <section className="bottom-0 w-full lg:px-6 mt-auto antialiased bg-white">
-                <div className="flex flex-col md:flex-row p-2 mt-8 border-t border-gray-300 items-center justify-between">
+                <div className="flex flex-col md:flex-row p-2 border-t border-gray-300 items-center justify-between">
                     <div className="inline-flex justify-start items-center">
                         <div className="flex flex-col border-b-0 md:border-r-2 border-gray-300">
                             <h1 className="mx-2 p-2 font-bold whitespace-nowrap">{this.state.title}</h1>
@@ -53,7 +53,7 @@ export default class extends Component
                                 </div>
                             </div>
                         </div>
-                        <span className="hidden md:inline-flex text-sm text-gray-500 p-2 items-center whitespace-nowrap">Copyright <i className="fa-regular fa-copyright m-1"></i> 2023 All Rights Reserved</span>
+                        <span className="hidden md:inline-flex text-sm text-gray-500 p-2 items-center whitespace-nowrap opacity-60">Copyright <i className="fa-regular fa-copyright m-1"></i> 2023 All Rights Reserved</span>
                     </div>
                     <div className="inline-flex justify-end items-center w-full lg:w-1/2">
                         <div className="hidden md:flex flex-col sm:flex-row justify-evenly w-full">
@@ -62,7 +62,7 @@ export default class extends Component
                             ))}
                         </div>
                     </div>
-                    <span className="md:hidden text-sm text-gray-500 p-2 border-t-2 sm:border-t-0 border-gray-300">Copyright <i className="fa-regular fa-copyright m-1"></i> 2023 All Rights Reserved</span>
+                    <span className="md:hidden text-sm text-gray-500 p-2 border-t-2 sm:border-t-0 border-gray-300 opacity-60">Copyright <i className="fa-regular fa-copyright m-1"></i> 2023 All Rights Reserved</span>
                 </div>
             </section>
         );
