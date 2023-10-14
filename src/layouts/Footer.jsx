@@ -14,7 +14,7 @@ export default class extends Component
                 facebook: "https://www.facebook.com/www.ellisbc.org",
                 pushpay: "https://pushpay.com/g/ellisbc?src=hpp",
                 mediaExtension: "/videos/",
-                email: "pastor@ellisbc.org",
+                email: "mailto:pastor@ellisbc.org",
             },
             navLinks: props.navigation
         }
@@ -31,7 +31,7 @@ export default class extends Component
             <section className="bottom-0 w-full lg:px-6 mt-auto antialiased bg-white">
                 <div className="flex flex-col md:flex-row p-2 mt-8 border-t border-gray-300 items-center justify-between">
                     <div className="inline-flex justify-start items-center">
-                        <div className="flex flex-col border-b-2 md:border-b-0 md:border-r-2 border-gray-300">
+                        <div className="flex flex-col border-b-0 md:border-r-2 border-gray-300">
                             <h1 className="mx-2 p-2 font-bold whitespace-nowrap">{this.state.title}</h1>
                             <div>
                                 <div className="flex flex-row justify-center">
@@ -56,7 +56,7 @@ export default class extends Component
                         <span className="hidden md:inline-flex text-sm text-gray-500 p-2 items-center whitespace-nowrap">Copyright <i className="fa-regular fa-copyright m-1"></i> 2023 All Rights Reserved</span>
                     </div>
                     <div className="inline-flex justify-end items-center w-full lg:w-1/2">
-                        <div className="flex flex-col sm:flex-row justify-evenly w-full">
+                        <div className="hidden md:flex flex-col sm:flex-row justify-evenly w-full">
                             {_.map(this.state.navLinks, (link) => (
                                 <NavLink key={link.text} href={link.href}>{link.text}</NavLink>
                             ))}
