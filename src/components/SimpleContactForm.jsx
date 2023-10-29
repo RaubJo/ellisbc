@@ -1,7 +1,7 @@
 import { Component } from "react";
 import emailjs from '@emailjs/browser';
 import classNames from "classnames";
-import { isBoolean, isEmpty, isNull, forEach, isUndefined, each, every } from "lodash";
+import { isEmpty, every } from "lodash";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -14,10 +14,10 @@ export default class extends Component
             submitting: false,
             error: { },
             form: {
-                first_name: null,
-                last_name: null,
-                email: null,
-                message: null
+                first_name: '',
+                last_name: '',
+                email: '',
+                message: ''
             },
             config: {
                 service_id: 'service_yscbhkb',
@@ -41,10 +41,10 @@ export default class extends Component
     clear() {
         this.setState({
             form: {
-                first_name: null,
-                last_name: null,
-                email: null,
-                message: null
+                first_name: '',
+                last_name: '',
+                email: '',
+                message: ''
             },
         });
     }
@@ -87,7 +87,6 @@ export default class extends Component
         
         emailjs.send(this.state.config.service_id, this.state.config.template_id, this.state.form, this.state.config.user_id)
             .then((result) => {
-                this.clear()
                 toast.success('Form submitted successfully!', {
                     position: "bottom-right",
                     autoClose: 4000,
@@ -110,6 +109,9 @@ export default class extends Component
                     theme: "light",
                 });
             })
+            .finally(()=>{
+                this.clear()
+            })
 
         this.setState({ submitting: false})
 
@@ -129,9 +131,10 @@ export default class extends Component
                                     <input
                                         type="text"
                                         id="first_name"
-                                        placeholder=""
+                                        placeholder="First Name"
                                         className={classNames(this.state.styles.default, this.state.styles.focus, this.state.styles.hover)}     
-                                        onBlur={this.handle}
+                                        onChange={this.handle}
+                                        value={this.state.form.first_name}
                                         required
                                     />
                                 </label>
@@ -140,10 +143,11 @@ export default class extends Component
                                     <span className="text-gray-700">Last Name</span>
                                     <input
                                         type="text"
-                                        placeholder=""
+                                        placeholder="Last Name"
                                         id="last_name"
-                                        onBlur={this.handle}
+                                        onChange={this.handle}
                                         className={classNames(this.state.styles.default, this.state.styles.focus, this.state.styles.hover)}
+                                        value={this.state.form.last_name}
                                         required  
                                     />
                                 </label>
@@ -156,9 +160,10 @@ export default class extends Component
                                 <input 
                                     type="email"
                                     placeholder="email@example.com"
-                                    onBlur={this.handle}
+                                    onChange={this.handle}
                                     id="email"
                                     className={classNames(this.state.styles.default, this.state.styles.focus, this.state.styles.hover)}
+                                    value={this.state.form.email}
                                     required
                                 />
                             </label>
@@ -168,8 +173,10 @@ export default class extends Component
                                 <textarea
                                     rows="8"
                                     id="message"
+                                    placeholder="We'd love to hear from you!"
                                     onChange={this.handle}
                                     className={classNames('resize-none', this.state.styles.default, this.state.styles.focus, this.state.styles.hover)}
+                                    value={this.state.form.message}
                                     required
                                 >
                             </textarea>
