@@ -1,134 +1,25 @@
 ---
+import SimpleContactForm from '@components/SimpleContactForm';
 import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout title="About Us">
-    <div class="flex w-3/4 mx-auto justify-center">
+    <div class="flex w-full mx-auto justify-center">
         <div class="py-12">
             <h2 class="text-2xl font-bold text-center">Contact Us!</h2>
-                <form id="contact" onsubmit="#" method="POST">
-                    <div class="mt-8">
-                        <div class="grid grid-cols-1 gap-6">
-
-                            <div class="flex flex-row gap-6">
-                                <label class="block">
-                                    <span class="text-gray-700">First Name</span>
-                                    <input
-                                        type="text"
-                                        placeholder=""
-                                        class="
-                                            border-2
-                                            mt-1 
-                                            p-2 
-                                            block 
-                                            w-full
-                                            rounded-md 
-                                            border-gray-300 
-                                            shadow-sm 
-                                            focus:border-indigo-300 
-                                            focus:ring 
-                                            focus:ring-indigo-200 
-                                            focus:ring-opacity-50
-                                        "
-                                    >
-                                </label>
-            
-                                <label class="block">
-                                    <span class="text-gray-700">Last Name</span>
-                                    <input
-                                        type="text"
-                                        placeholder=""
-                                        class="
-                                            border-2 
-                                            mt-1 
-                                            p-2 
-                                            block 
-                                            w-full 
-                                            rounded-md 
-                                            border-gray-300 
-                                            shadow-sm 
-                                            focus:border-indigo-300 
-                                            focus:ring 
-                                            focus:ring-indigo-200 
-                                            focus:ring-opacity-50
-                                        "
-                                    >
-                                </label>
-                            </div>
-
-                            
-                            <label class="block">
-
-                                <span class="text-gray-700">Email address</span>
-                                <input 
-                                    type="email"
-                                    placeholder="email@example.com"
-                                    class="
-                                        border-2
-                                        mt-1 
-                                        p-2 
-                                        block 
-                                        w-full 
-                                        rounded-md 
-                                        border-gray-300 
-                                        shadow-sm 
-                                        focus:border-indigo-300 
-                                        focus:ring 
-                                        focus:ring-indigo-200 
-                                        focus:ring-opacity-50
-                                    "
-                                >
-                            </label>
-
-                            <label class="block">
-                                <span class="text-gray-700">Message</span>
-                                <textarea
-                                    rows="5"
-                                    class="
-                                        border-2
-                                        p-2
-                                        mt-1
-                                        block
-                                        w-full
-                                        rounded-md
-                                        border-gray-300
-                                        shadow-sm
-                                        focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
-                                    "
-                                >
-                            </textarea>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="flex mt-6 justify-end">
-                        <button 
-                            class="
-                                inline-flex
-                                text-white 
-                                bg-indigo-500 
-                                border-0 
-                                py-2 
-                                px-6 
-                                focus:outline-none 
-                                hover:bg-indigo-600 
-                                rounded 
-                                text-lg
-                            "
-                        >
-                            Submit
-                        </button>
-                    </div>
-            </form>
+            <div class="flex flex-row mx-auto">
+                <div class="w-1/2 mx-2 mt-8 text-lg">
+                    <ul>
+                        <li class="mb-4">Thank you for taking the time to contact us. </li>
+                        <li class="mb-4">Phone: <a class="underline hover:opacity-70" href="tel:7857263657">(785) 726-3657</a></li>
+                        <li class="mb-4">Email: <a class="underline hover:opacity-70" href="mailto:pastor@ellisbc.org">pastor@ellisbc.org</a></li>
+                        <li>Mail: <a class="underline hover:opacity-70" href="https://maps.google.com/maps/dir//107+W+9th+St+Ellis,+KS+67637/@38.9386293,-99.5608247,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x87a1a00e1de3b4f5:0xefbfd87667c1a7d3">107 W 9th St Ellis, KS 67637</a></li>
+                    </ul>
+                </div>
+                <div class="w-1/2">
+                    <SimpleContactForm client:load />
+                </div>
+            </div>
         </div>
     </div>
 </Layout>
-
-<script>
-    
-    function handleSubmit() {
-        let form = document.forms.namedItem('contact');
-        console.log(form)
-        // let firstName = form.elements['firstname'];
-
-    }
-</script>

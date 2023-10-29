@@ -28,7 +28,7 @@ export default class extends Component
                     </p>
                     {this.shouldShowButton() &&
                         <button onClick={() => window.open(this.state.url)}
-                            className="inline-flex items-center w-3/4 mx-auto h-10 px-4 justify-end text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-neutral-950 hover:bg-neutral-950/90">
+                            className="inline-flex items-center w-3/4 mx-auto mt-auto h-10 px-4 justify-end text-sm font-medium text-white transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-neutral-950 hover:bg-neutral-950/90">
                                 <span className="w-full mx-auto">{this.state.buttonText}</span>
                                 <svg className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fillRule="evenodd"
