@@ -1,14 +1,70 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-
-import LeftContent from "../../components/LeftContent.jsx";
-import RightContent from "../../components/RightContent.jsx";
-import CenterContent from "../../components/CenterContent.jsx";
-import type Beliefs from './beliefs.astro';
+import Layout from '@layouts/Layout.astro';
+import Verse from '@components/Text/Verse.jsx'
 ---
 
 
 <Layout title="How Can I Be Saved">
+    <div class="mx-auto mt-8 mb-4">
+        <span class="text-2xl">
+            How Can I Be Saved?
+        </span>
+    </div>
+
+    <div class="flex flex-col w-5/6 sm:w-3/4 md:w-1/2 lg:w-1/2 mx-auto text-lg">
+        <div class="flex flex-col items-left mt-4 mb-4">
+            <span class="text-xl font-bold my-3">Why do I need to be saved?</span>
+            <span>The Bible makes the following statements.</span>
+            <ul class="list-disc ml-5 leading-relaxed">
+                <li>All have sinned</li>
+                <Verse reference="Romans 3:23" client:load/>
+                <Verse reference="1 John 1:8" client:load/>
+                <li>Sin's punishment is death and eternal separation from God.</li>
+                <Verse reference="Romans 6:23" client:load/>
+                <Verse reference="Revelation 20:11-15" client:load/>
+                <li>God is righteous and just and cannot excuse sin.</li>
+                <li>Without God's plan of salvation, the eternal destiny of every person is eternal death</li>
+            </ul>
+        </div>
+
+        <div class="flex flex-col items-left my-4">
+            <span class="text-xl font-bold my-3">What is the plan of Salvation?</span>
+            <p class="leading-relaxed">According to the Bible, God provided a single way for anyone to be saved from eternal death. God became flesh, in the person of Jesus Christ.
+                Jesus lived a sinless life, and offered Himself as the perfect sacrifice for our sins. Since Jesus was and is God, His sacrifice is infinite and of eternal value. The death of Jesus fully paid for the sins of the whole world from beginning to end.
+                Furthermore, His resurrection from the dead proved that His sacrfice was sufficient and that Salvation is now available to all.
+            </p>
+            <Verse reference="John 1:1" client:load/>
+            <Verse reference="John 1:14" client:load/>
+            <!-- <Verse reference="2 Corinthians 5:21" client:load/>
+            <Verse reference="Hebrews 4:15" client:load/>
+            <Verse reference="1 John 3:5" client:load/>
+            <Verse reference="1 Corinthians 15:3" client:load/>
+            <Verse reference="Colossians 1:22" client:load/>
+            <Verse reference="Hebrews 10:10" client:load/>
+            <Verse reference="1 John 2:2" client:load/> -->
+        </div>
+
+        <div class="flex flex-col items-left my-4">
+            <span class="text-xl font-bold">How can I be saved?</span>
+            <p>The Bible makes clear that there is nothing we can <em>do</em> to try and <em>earn</em> salvation.</p>
+            <p>The way to recieve salvation is to <span class="font-bold italic">believe</span>.</p>
+            <Verse reference="John 3:16" client:load/>
+            <Verse reference="Ephesians 2:8-9" client:load/>
+            <p>God alone provided salvation as a free gift to anyone. All we must do is receive it, by faith, fully trusting Jesus as Savior.</p>
+            <Verse reference="John 14:6" client:load/>
+            <Verse reference="Acts 4:12" client:load/>
+        </div>
+
+        <div class="flex flex-col items-left my-4">
+            <span class="text-xl font-bold">Will you receive it?</span>
+            <p>
+                Choosing to place your faith in Jesus as Savior is the most important decision you will ever make.
+                If you are ready to follow God's plan of Salvation simply trust in the sacrifice of Jesus as the perfect and complete payment for your sin.
+                If you do this, God's Word promises that you will be saved, your sins will be forgiven, and Heaven will be your eternal home.
+            </p>
+        </div>
+    </div>
+
 
 
 </Layout>
