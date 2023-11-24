@@ -7,10 +7,10 @@ const links: Link[] = [
         text: "About Us",
         href: "/about/us"
     },
-    {
-        text: "Our Ministries",
-        href: "/about/ministries"
-    },
+    // {
+    //     text: "Our Ministries",
+    //     href: "/about/ministries"
+    // },
     {
         text: "Media",
         href: "https://www.facebook.com/www.ellisbc.org/videos/"
