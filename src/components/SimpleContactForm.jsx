@@ -232,18 +232,22 @@ export default class extends Component
                             </label>
                         </div>
                     </div>
-                    <div className="flex mt-6 justify-end">
+                    <div className="flex flex-col md:flex-row mt-6 md:justify-between">
 
                     <ReCAPTCHA
                         ref={this.reCaptchaRef}
                         sitekey={this.state.captcha.siteKey}
                         onChange={this.handleChange}
+                        className="mx-auto mb-4 md:ml-0"
                     />
                         <button 
                             className="
                                 inline-flex
                                 text-white 
                                 bg-gray-500 
+                                w-fit
+                                mx-auto
+                                md:mr-0
                                 border-0 
                                 py-2 
                                 px-6 
