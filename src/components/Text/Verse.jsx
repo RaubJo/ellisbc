@@ -49,7 +49,13 @@ export default class extends Component {
         }
 
         this.setState({...this.state, loading: true})
-        axios.get(`${this.state.endpoint}?reference=${this.state.reference}&translation=${this.state.translation}`)
+
+        let query = new URLSearchParams(Object.entries({
+            reference: this.state.reference,
+            translation: this.state.translation
+        })).toString()
+
+        axios.get(`${this.state.endpoint}?${query}`)
         .then((response) => {
             this.setState({
                 ...this.state,
@@ -60,37 +66,29 @@ export default class extends Component {
                 },
                 loading: false
             })
-        .catch((error) => {})
         })
+        .catch((error) => {})
     }
 
     render() {
         return (
           <>
-          {isNull(this.state.verse) && (
-            <div className="bg-gray-100 rounded-md p-2 mt-2">
-                <FormatQuoteRounded className="mx-4 mt-4 mb-1"/>
-                <div>
-                    <a href="#" className="flex whitespace-nowrap justify-end mb-2 mx-2">({this.state.reference})</a>
-                </div>
-            </div>
-          )}
-          {! isNull(this.state.verse) && (
-            <div className="bg-gray-100 rounded-md p-2 mt-2">
-                <div className="flex mx-4 mt-4 mb-1 justify-between">
-                    <FormatQuoteRounded />
-                    <ExpandMore onClick={this.toggle()} className="justify-end" />
-                </div>
-                {this.state.verse.show && (
-                    <div className="px-4 w-full">
-                        <p className="italic">{this.state.verse.content}</p>
+            {! isNull(this.state.verse) && (
+                <div className="bg-gray-100 rounded-md p-2 mt-2">
+                    <div className="flex mx-4 mt-4 mb-1 justify-between">
+                        <FormatQuoteRounded />
+                        {/* <ExpandMore onClick={this.toggle()} className="justify-end" /> */}
                     </div>
-                )}
-                <div>
-                    <a href="#" className="flex whitespace-nowrap justify-end mb-2 mx-2">({this.state.verse.reference})</a>
+                    {this.state.verse.show && (
+                        <div className="px-4 w-full">
+                            <p className="italic">{this.state.verse.content}</p>
+                        </div>
+                    )}
+                    <div>
+                        <a href="#" className="flex whitespace-nowrap justify-end mb-2 mx-2">({this.state.verse.reference})</a>
+                    </div>
                 </div>
-            </div>
-          )}
+            )}
           </>  
         );
     }
