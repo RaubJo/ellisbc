@@ -18,7 +18,7 @@ deploy: # Deploy the site to staging
 
 release: # Release the site to production
 	@npm run build
-	@npx wrangler pages deploy ./dist --project-name ellisbc
+	@npx wrangler pages deploy ./dist --branch main --project-name ellisbc 
 
 dev: # Run to develop locally
 	@npm run dev
