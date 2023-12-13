@@ -1,8 +1,8 @@
+
 import _ from 'lodash';
 
-import cmsClient from '@cms/client';
 
-const verses = (await cmsClient.fetch('verses')) as Verse[];
+import verses from  '@cms/verses'
 
 export const get = (request: any) => {
   
@@ -10,12 +10,12 @@ export const get = (request: any) => {
 
     let translation = searchParams.get('translation') ?? 'kjv'
     let reference: string = searchParams.get('reference') ?? ''
-  
+    
     return new Response(
       JSON.stringify({
         translation: translation,
         reference: reference,
-        verse: getVerse(reference)
+        verse: getVerse(reference) ?? null
       })
     );
   };
