@@ -3,6 +3,7 @@ import deacons from '@cms/deacons';
 import images from '@cms/images';
 import beliefs from '@cms/beliefs';
 import links from '@cms/links';
+import verses from '@cms/verses';
 
 const cmsClient = {
 	fetch: async (query: string, { variables }: { variables?: any } = {}) => {
@@ -11,7 +12,8 @@ const cmsClient = {
             deacons,
             images,
             beliefs,
-			links
+			links,
+			verses
 		}[query];
 		if (!res) throw new Error(`Unknown query: ${query}`);
 		return res;

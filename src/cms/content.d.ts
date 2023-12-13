@@ -9,8 +9,6 @@ type Verse = {
     content: string;
 }
 
-
-
 type Image = {
     id: string;
     path: string;
