@@ -19,10 +19,10 @@ export default class extends Component
                 value: null,
             },
             form: {
-                first_name: 'j',
-                last_name: 'j',
-                email: 'j@j.com',
-                message: 'j'
+                first_name: '',
+                last_name: '',
+                email: '',
+                message: ''
             },
             config: {
                 service_id: 'service_yscbhkb',
