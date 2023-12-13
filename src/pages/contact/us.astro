@@ -7,8 +7,8 @@ import Layout from '../../layouts/Layout.astro';
     <div class="flex w-full mx-auto justify-center">
         <div class="py-12">
             <h2 class="text-2xl font-bold text-center">Contact Us!</h2>
-            <div class="flex flex-row mx-auto">
-                <div class="w-1/2 mx-2 mt-8 text-lg">
+            <div class="flex flex-col md:flex-row mx-auto">
+                <div class="w-full md:w-1/2 mx-2 mt-8 text-lg">
                     <ul>
                         <li class="mb-4">Thank you for taking the time to contact us. </li>
                         <li class="mb-4">Phone: <a class="underline hover:opacity-70" href="tel:7857263657">(785) 726-3657</a></li>
@@ -16,7 +16,7 @@ import Layout from '../../layouts/Layout.astro';
                         <li>Mail: <a class="underline hover:opacity-70" href="https://maps.google.com/maps/dir//107+W+9th+St+Ellis,+KS+67637/@38.9386293,-99.5608247,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x87a1a00e1de3b4f5:0xefbfd87667c1a7d3">107 W 9th St Ellis, KS 67637</a></li>
                     </ul>
                 </div>
-                <div class="w-1/2">
+                <div class="w-fit m-4 md:w-1/2">
                     <SimpleContactForm client:load />
                 </div>
             </div>

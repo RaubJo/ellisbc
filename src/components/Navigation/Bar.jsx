@@ -61,10 +61,11 @@ export default class extends Component
                 <AnimatePresence>
                     {this.state.mobileMenu.active &&
                         <motion.div 
-                            className="flex flex-col w-auto mr-0 ml-0 mx-auto"
-                            initial={{ opacity: 1, y: 0, x: -400}}
+                            className="flex flex-col w-auto mr-0 ml-0 mx-auto z-50"
+                            initial={{ opacity: 1, y: 0, x: -800}}
                             animate={{ opacity: 1, y: 0, x: 0 }}
-                            exit={{ opacity: 1, y: 0, x: -400}}
+                            exit={{ opacity: 1, y: 0, x: -800}}
+                            transition={{ease: 'anticipate'}}
                         >
                             <ul className="font-medium flex flex-col p-4 md:p-0 mt-0 shadow-lg bg-white md:flex-row md:space-x-8 md:mt-0 md:border-0">
                                 {_.map(this.state.links, (link) => (
