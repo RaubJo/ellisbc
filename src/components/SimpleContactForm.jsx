@@ -25,7 +25,7 @@ export default class extends Component
                 message: ''
             },
             config: {
-                service_id: 'service_yscbhkb',
+                service_id: 'service_hnbuech',
                 template_id: 'template_ym0fbks',
                 user_id: 'I5ASvLKmlvDBcYJId'
             },
@@ -40,6 +40,7 @@ export default class extends Component
         this.handle = this.handle.bind(this)
         this.submit = this.submit.bind(this)
         this.isFormFilled = this.isFormFilled.bind(this)
+        this.handleChange = this.handleChange.bind(this)
 
         this.reCaptchaRef = createRef();
     }
@@ -56,8 +57,6 @@ export default class extends Component
                 token: null
             }
         });
-
-        console.log(this.reCaptchaRef.current)
     }
 
     handle(el) {
@@ -70,7 +69,7 @@ export default class extends Component
     }
 
     isFormFilled() {
-        return ! every(this.state.form, (value, key) => ! isEmpty(value))
+        return ! every(this.state.form, (value, key) => ! isEmpty(value)) 
     }
 
     handleChange = value => {
@@ -80,7 +79,6 @@ export default class extends Component
                 value: value
             }
         });
-        if (value === null) this.setState({ expired: "true" });
       };
 
     submit(e) {
@@ -93,7 +91,7 @@ export default class extends Component
         this.setState({ submitting: true})
 
         axios.post('/api/verify', {
-            token: this.state.captcha.value ?? null
+            token: this.state.captcha.value
         })
         .then((response) => {
 
@@ -155,12 +153,6 @@ export default class extends Component
         })
 
     }
-
-    onChange(value) {
-        console.log(value);
-    }
-
-    
 
     render() {
         return (
