@@ -87,6 +87,20 @@ export default class extends Component
         if(this.state.submitting) {
             return false
         }
+
+        if(isEmpty(this.state.captcha.value)) {
+            toast.warning('Please verify the reCAPTCHA', {
+                position: "bottom-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+            });
+            return false
+        }
         
         this.setState({ submitting: true})
 
@@ -107,7 +121,7 @@ export default class extends Component
                     theme: "light",
                 });
 
-                return 0;
+                return false;
             }
             
             emailjs.send(this.state.config.service_id, this.state.config.template_id, this.state.form, this.state.config.user_id)
@@ -233,8 +247,9 @@ export default class extends Component
                                 border-0 
                                 py-2 
                                 px-6 
+                                my-auto
                                 focus:outline-none 
-                                hover:bg-red-300 
+                                hover:bg-blue-500
                                 rounded 
                                 text-lg
                                 items-center
