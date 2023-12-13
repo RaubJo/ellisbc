@@ -62,9 +62,9 @@ export default class extends Component
                     {this.state.mobileMenu.active &&
                         <motion.div 
                             className="flex flex-col w-auto mr-0 ml-0 mx-auto"
-                            initial={{ opacity: 0, y: 0, x: -200}}
+                            initial={{ opacity: 1, y: 0, x: -400}}
                             animate={{ opacity: 1, y: 0, x: 0 }}
-                            exit={{ opacity: 0, y: 0, x: -200}}
+                            exit={{ opacity: 1, y: 0, x: -400}}
                         >
                             <ul className="font-medium flex flex-col p-4 md:p-0 mt-0 shadow-lg bg-white md:flex-row md:space-x-8 md:mt-0 md:border-0">
                                 {_.map(this.state.links, (link) => (
