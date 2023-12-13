@@ -1,10 +1,11 @@
-import { Component } from "react";
+import { Component, createRef } from "react";
 import emailjs from '@emailjs/browser';
 import classNames from "classnames";
 import { isEmpty, every } from "lodash";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-
+import ReCAPTCHA from "react-google-recaptcha";
+import axios from 'axios';
 
 export default class extends Component
 {
@@ -13,11 +14,15 @@ export default class extends Component
         this.state = {
             submitting: false,
             error: { },
+            captcha: {
+                siteKey: '6LehpjApAAAAADpOZcmavZNM_BLVlTfqnSsLfXDS',
+                value: null,
+            },
             form: {
-                first_name: '',
-                last_name: '',
-                email: '',
-                message: ''
+                first_name: 'j',
+                last_name: 'j',
+                email: 'j@j.com',
+                message: 'j'
             },
             config: {
                 service_id: 'service_yscbhkb',
@@ -36,6 +41,7 @@ export default class extends Component
         this.submit = this.submit.bind(this)
         this.isFormFilled = this.isFormFilled.bind(this)
 
+        this.reCaptchaRef = createRef();
     }
 
     clear() {
@@ -46,7 +52,12 @@ export default class extends Component
                 email: '',
                 message: ''
             },
+            captcha: {
+                token: null
+            }
         });
+
+        console.log(this.reCaptchaRef.current)
     }
 
     handle(el) {
@@ -62,17 +73,74 @@ export default class extends Component
         return ! every(this.state.form, (value, key) => ! isEmpty(value))
     }
 
+    handleChange = value => {
+        this.setState({
+            ...this.state,
+            captcha: {
+                value: value
+            }
+        });
+        if (value === null) this.setState({ expired: "true" });
+      };
+
     submit(e) {
         e.preventDefault()
 
         if(this.state.submitting) {
             return false
         }
+        
+        this.setState({ submitting: true})
 
-        if(this.isFormFilled()) {
-            toast.error('Please fill out the form.', {
+        axios.post('/api/verify', {
+            token: this.state.captcha.value ?? null
+        })
+        .then((response) => {
+
+            if(response.data.success !== true) {
+                toast.error('Something went wrong with the reCAPTCHA. Please try again later.', {
+                    position: "bottom-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                });
+
+                return 0;
+            }
+            
+            emailjs.send(this.state.config.service_id, this.state.config.template_id, this.state.form, this.state.config.user_id)
+                .then((result) => {
+                    toast.success('Form submitted successfully!', {
+                        position: "bottom-right",
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                }, (error) => {
+                    toast.error('Something went wrong. Please try again later.', {
+                        position: "bottom-right",
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                })
+        })
+        .catch((response) => {
+            toast.error('Something went wrong. Please try again later.', {
                 position: "bottom-right",
-                autoClose: 5000,
+                autoClose: 4000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,
@@ -80,41 +148,16 @@ export default class extends Component
                 progress: undefined,
                 theme: "light",
             });
-            return false
-        }
+        })
+        .finally(() => {
+            this.clear()
+            this.setState({ submitting: true})
+        })
 
-        this.setState({ submitting: true})
-        
-        emailjs.send(this.state.config.service_id, this.state.config.template_id, this.state.form, this.state.config.user_id)
-            .then((result) => {
-                toast.success('Form submitted successfully!', {
-                    position: "bottom-right",
-                    autoClose: 4000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: false,
-                    progress: undefined,
-                    theme: "light",
-                });
-            }, (error) => {
-                toast.error('Something went wrong. Please try again later.', {
-                    position: "bottom-right",
-                    autoClose: 4000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: false,
-                    progress: undefined,
-                    theme: "light",
-                });
-            })
-            .finally(()=>{
-                this.clear()
-            })
+    }
 
-        this.setState({ submitting: false})
-
+    onChange(value) {
+        console.log(value);
     }
 
     
@@ -184,6 +227,12 @@ export default class extends Component
                         </div>
                     </div>
                     <div className="flex mt-6 justify-end">
+
+                    <ReCAPTCHA
+                        ref={this.reCaptchaRef}
+                        sitekey={this.state.captcha.siteKey}
+                        onChange={this.handleChange}
+                    />
                         <button 
                             className="
                                 inline-flex
@@ -196,6 +245,7 @@ export default class extends Component
                                 hover:bg-red-300 
                                 rounded 
                                 text-lg
+                                items-center
                                 disabled:cursor-not-allowed
                                 disabled:hover:bg-gray-500
                                 disabled:opacity-50
