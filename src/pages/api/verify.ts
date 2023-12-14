@@ -1,14 +1,14 @@
 export async function post({ request }) {
     const data = await request.json();
   
-    const recaptchaURL = 'https://www.google.com/recaptcha/api/siteverify';
+    const url = import.meta.env.GOOGLE_RECAPTCHA_URL
 
     const requestBody = {
-      secret: '6LehpjApAAAAADu0-jJJnArKoaYRVtK5FOglQDM6',   // This can be an environment variable
-      response: data.token       // The token passed in from the client
+      secret: import.meta.env.GOOGLE_RECAPTCHA_SECRET,
+      response: data.token
     };
   
-    const response = await fetch(recaptchaURL, {
+    const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(Object.entries(requestBody)).toString()
