@@ -15,7 +15,7 @@ export default class extends Component
             submitting: false,
             error: { },
             captcha: {
-                siteKey: '6LehpjApAAAAADpOZcmavZNM_BLVlTfqnSsLfXDS',
+                siteKey: '6Lcx3TEpAAAAAEE-mxOdCZQzGI3eAtJ6TlpOLUv7',
                 value: null,
             },
             form: {
