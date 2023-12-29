@@ -3,7 +3,7 @@ import Profile from './Profile';
 export default function RightProfile(props)
 {
   return (
-    <Profile title={props.title}>
+    <Profile title={props.title} id={props.title}>
       <div className="sm:hidden sm:w-1/3 text-center sm:pl-8 sm:py-8">
         <div className="w-56 h-56 inline-flex items-center align-middle justify-center">
           

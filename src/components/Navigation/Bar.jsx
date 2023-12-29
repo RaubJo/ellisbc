@@ -11,8 +11,9 @@ export default class extends Component
     constructor(props){
         super(props)
         this.state = {
-            logo: "/logo.svg",
+            logo: null,
             title: "Ellis Baptist Church",
+            subtitle: "speaking the truth in love",
             links: props.links,
             mobileMenu: {
                 active: false,
@@ -44,13 +45,20 @@ export default class extends Component
                     }
                     <div className="flex flex-row justify-evenly sm:justify-between">
                         <div className="flex items-center justify-evenly sm:justify-start h-full ml-4 lg:mx-4 text-black">
-                            <a href="/"><span className="hidden lg:flex mx-auto md:mr-4 text-lg sm:text-3xl lg:text-2xl font-bold text-black whitespace-nowrap">{this.state.title}</span></a>
+                            <a href="/">
+                                <span className="hidden lg:flex mx-auto md:mr-4 text-lg sm:text-3xl lg:text-2xl font-bold text-black whitespace-nowrap">
+                                    {this.state.title}
+                                </span>
+                                <span className="hidden lg:flex mx-auto font-light text-gray-500 whitespace-nowrap">
+                                    {this.state.subtitle}
+                                </span>
+                            </a>
                         </div>
                     </div>
                     
                     <div className="hidden md:flex flex-row justify-end container relative mx-4 w-full items-center whitespace-nowrap">
                         {_.map(this.state.links, (link) => (
-                            <Link key={link.text} href={link.href}>{link.text}</Link>
+                            <Link key={link.text} href={link.href} target={link.target}>{link.text}</Link>
                         ))}
                     </div>
                     <div className="md:hidden flex-end items-center m-4 sm:m-6">
@@ -69,7 +77,7 @@ export default class extends Component
                         >
                             <ul className="font-medium flex flex-col p-4 md:p-0 mt-0 shadow-lg bg-white md:flex-row md:space-x-8 md:mt-0 md:border-0">
                                 {_.map(this.state.links, (link) => (
-                                    <MobileLink key={link.text} href={link.href} onClick={this.toggleMenu}>{link.text}</MobileLink>
+                                    <MobileLink key={link.text} href={link.href} target={link.target} onClick={this.toggleMenu}>{link.text}</MobileLink>
                                 ))}
                             </ul>
                         </motion.div>

@@ -74,18 +74,18 @@ export default class extends Component {
         return (
           <>
             {! isNull(this.state.verse) && (
-                <div className="bg-gray-100 rounded-md p-2 mt-2">
-                    <div className="flex mx-4 mt-4 mb-1 justify-between">
+                <div className="bg-gray-100 rounded-md p-1 mt-1">
+                    <div className="flex mx-2 mt-1 mb-1 justify-between">
                         <FormatQuoteRounded />
                         {/* <ExpandMore onClick={this.toggle()} className="justify-end" /> */}
                     </div>
                     {this.state.verse.show && (
-                        <div className="px-4 w-full">
+                        <div className="px-2 w-full">
                             <p className="italic">{this.state.verse.content}</p>
                         </div>
                     )}
                     <div>
-                        <a href="#" className="flex whitespace-nowrap justify-end mb-2 mx-2">({this.state.verse.reference})</a>
+                        <a href="#" className="flex whitespace-nowrap justify-end mb-1 mx-1">({this.state.verse.reference})</a>
                     </div>
                 </div>
             )}

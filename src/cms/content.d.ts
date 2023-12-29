@@ -2,6 +2,7 @@ type Profile = {
     name: string;
     image_path: string;
     position?: Position;
+    bio?: string;
 }
 
 type Verse = {
@@ -36,5 +37,7 @@ type Doctrine = {
 type Link = {
     text: string;
     href: string;
+    target?: string;
     links?: Link;
+
 }

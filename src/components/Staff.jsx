@@ -1,6 +1,6 @@
 export default function Staff(props)
 {
-  const links = false;
+  const links = false; // @todo add links to social media profiles
 
   return (
     <div className="p-4 w-full md:w-1/2 lg:w-1/4">
@@ -12,8 +12,8 @@ export default function Staff(props)
         <div className="w-full">
           <h2 className="title-font font-medium text-lg text-gray-900">{props.name}</h2>
           <h3 className="text-gray-500 mb-3">{props.position}</h3>
-          <p className="mb-4 text-center">
-            <slot></slot>
+          <p className="mb-4 text-center w-56 mx-auto">
+            {props.bio}
           </p>
             
           {links &&

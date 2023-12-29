@@ -22,6 +22,7 @@ export default class extends Component
                 first_name: '',
                 last_name: '',
                 email: '',
+                phone: '',
                 message: ''
             },
             config: {
@@ -172,11 +173,10 @@ export default class extends Component
         return (
             <>
                 <form onSubmit={this.submit} >
-                    <div className="mt-8">
+                    <div className="mt-4">
                         <div className="grid grid-cols-1 gap-6">
                             <div className="flex flex-row gap-6">
                                 <label className="block">
-                                    <span className="text-gray-700">First Name</span>
                                     <input
                                         type="text"
                                         id="first_name"
@@ -189,7 +189,6 @@ export default class extends Component
                                 </label>
             
                                 <label className="block">
-                                    <span className="text-gray-700">Last Name</span>
                                     <input
                                         type="text"
                                         placeholder="Last Name"
@@ -204,11 +203,9 @@ export default class extends Component
 
                             
                             <label className="block">
-
-                                <span className="text-gray-700">Email address</span>
                                 <input 
                                     type="email"
-                                    placeholder="email@example.com"
+                                    placeholder="Email"
                                     onChange={this.handle}
                                     id="email"
                                     className={classNames(this.state.styles.default, this.state.styles.focus, this.state.styles.hover)}
@@ -218,7 +215,18 @@ export default class extends Component
                             </label>
 
                             <label className="block">
-                                <span className="text-gray-700">Message</span>
+                                <input 
+                                    type="phone"
+                                    placeholder="Phone Number"
+                                    onChange={this.handle}
+                                    id="phone"
+                                    className={classNames(this.state.styles.default, this.state.styles.focus, this.state.styles.hover)}
+                                    value={this.state.form.email}
+                                    required
+                                />
+                            </label>
+
+                            <label className="block">
                                 <textarea
                                     rows="8"
                                     id="message"

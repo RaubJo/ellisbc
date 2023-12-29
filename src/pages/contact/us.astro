@@ -1,21 +1,23 @@
 ---
 import SimpleContactForm from '@components/SimpleContactForm';
 import Layout from '../../layouts/Layout.astro';
+import Map from '@components/Map'
 ---
 
 <Layout title="About Us">
     <div class="flex w-full mx-auto justify-center">
         <div class="py-12">
-            <h2 class="text-2xl font-bold text-center">Contact Us!</h2>
+            <h2 class="text-2xl text-center">Contact Us</h2>
             <div class="flex flex-col md:flex-row mx-auto">
                 <div class="w-full md:w-1/2 mx-6 mt-8 text-lg">
                     <ul>
                         <li class="mb-4">Thank you for taking the time to contact us. </li>
                         <li class="mb-4"> You can reach us at any of the below options or fill out the form.</li>
                         <li class="mb-4">Phone: <a class="underline hover:opacity-70" href="tel:7857263657">(785) 726-3657</a></li>
-                        <li class="mb-4">Email: <a class="underline hover:opacity-70" href="mailto:pastor@ellisbc.org">pastor@ellisbc.org</a></li>
+                        <li class="mb-4">Email: <a class="underline hover:opacity-70" href="mailto:pastor@ellisbc.org">info@ellisbc.org</a></li>
                         <li>Address: <a class="underline hover:opacity-70" href="https://maps.google.com/maps/dir//107+W+9th+St+Ellis,+KS+67637/@38.9386293,-99.5608247,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x87a1a00e1de3b4f5:0xefbfd87667c1a7d3">107 W 9th St Ellis, KS 67637</a></li>
                     </ul>
+                    <Map address={false}></Map>
                 </div>
                 <div class="w-fit m-4 md:w-1/2 mx-auto">
                     <SimpleContactForm client:load />

@@ -1,10 +1,10 @@
 const links: Link[] = [
     {
-        text: "Home",
+        text: "Welcome",
         href: "/"
     },
     {
-        text: "About Us",
+        text: "About",
         href: "/about/us"
     },
     // {
@@ -13,15 +13,17 @@ const links: Link[] = [
     // },
     {
         text: "Media",
-        href: "https://www.facebook.com/www.ellisbc.org/videos/"
+        href: "https://www.facebook.com/www.ellisbc.org/videos/",
+        target: "_blank"
     },
     {
-        text: "Contact Us",
+        text: "Contact",
         href: "/contact/us"
     },
     {
-        text: "Give Online",
-        href: "https://pushpay.com/g/ellisbc?src=hpp"
+        text: "Give",
+        href: "https://pushpay.com/g/ellisbc?src=hpp",
+        target: "_blank"
     }
 
 ]

@@ -18,6 +18,14 @@ This is the codebase for Ellis Baptist Church's website.
 
 Run `make help` to see available commands.
 
+# CTA Path
+1. Welcome
+2. About
+    1. Our ministries
+    2. Our Beliefs
+3. How can I be saved?
+4. Contact
+
 # License
 
 UNLICENSED All Rights Reserved 2023

@@ -2,11 +2,18 @@
 import Layout from '../../layouts/Layout.astro';
 import DoctrineAccordion from '../../components/DoctrineAccordian';
 import cmsClient from '@cms/client';
+import SimpleCTA from '@components/CTA/Simple'
 
 const beliefs = (await cmsClient.fetch('beliefs')) as Doctrine[];
 ---
 
 <Layout title="Our Beliefs">
+    <div class="mx-auto mt-8 mb-4">
+        <span class="text-2xl">
+            Our Beliefs
+        </span>
+    </div>
     <DoctrineAccordion data={beliefs} client:load ></DoctrineAccordion>
     <br />
+    <SimpleCTA text="If you would like more information contact us or visit our about us page!" />
 </Layout>

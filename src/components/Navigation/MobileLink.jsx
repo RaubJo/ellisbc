@@ -1,9 +1,10 @@
 import classNames from "classnames"
 
-export default function Link({href, children}) {
+export default function Link({href, children, target = "_self"}) {
     return (
         <a 
             href={href}
+            target={target}
             className="flex
                        flex-row
                        w-full

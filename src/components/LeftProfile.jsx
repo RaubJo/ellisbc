@@ -8,17 +8,18 @@ export default class extends Component
     super(props)
     this.state = {
       title: props.title,
+      subtitle: props.subtitle ?? null,
       image: props.image,
       content: props.content
     }
   }
   render() {
     return (
-      <Profile title={this.state.title}>
+      <Profile title={this.state.title} subtitle={this.state.subtitle}>
             <div className="flex flex-col items-center sm:flex-row">
+              <span></span>
               <div className="w-2/3 sm:w-1/2 text-center pr-4 py-4">
                 <div className="inline-flex items-center justify-center">
-
                   <div className="flex h-full w-full shadow-md">
                     {this.state.image}
                   </div>

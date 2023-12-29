@@ -30,9 +30,10 @@ export default class extends Component
                     key={minister.name}
                     name={minister.name}
                     position={minister.position}
+                    bio={minister.bio}
                     image={`/images/profiles/${minister.image_path}.png`}
                     altText="Minister Image"
-                  ></Staff>
+                  />
               ))}
           
           </div>
