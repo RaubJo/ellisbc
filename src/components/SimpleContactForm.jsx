@@ -51,6 +51,7 @@ export default class extends Component
             form: {
                 first_name: '',
                 last_name: '',
+                phone: '',
                 email: '',
                 message: ''
             },
@@ -77,6 +78,7 @@ export default class extends Component
         this.setState({
             ...this.state,
             captcha: {
+                ...this.state.captcha,
                 value: value
             }
         });
@@ -221,7 +223,7 @@ export default class extends Component
                                     onChange={this.handle}
                                     id="phone"
                                     className={classNames(this.state.styles.default, this.state.styles.focus, this.state.styles.hover)}
-                                    value={this.state.form.email}
+                                    value={this.state.form.phone}
                                     required
                                 />
                             </label>
