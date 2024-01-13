@@ -1,6 +1,6 @@
 import { Component } from "react";
 import axios from 'axios';
-import { isNull } from "lodash";
+import isNull from "lodash/isNull";
 import { FormatQuoteRounded, ExpandMore } from "@mui/icons-material";
 
 export default class extends Component {

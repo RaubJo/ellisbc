@@ -26,16 +26,16 @@ export default class extends Component
                 <div className="flex flex-row">
                     <div className="container relative flex flex-row w-fit">
                         <div className="flex items-center justify-evenly sm:justify-start h-full ml-4 lg:mx-4">
-                            <a href="/" class="flex items-center font-extrabold text-gray-900 md:py-0">
-                                <span class="items-center justify-center w-24 h-24 text-black">
-                                    <img src={this.state.logo} class="w-full h-full" alt="Ellis Baptist Church"/>
+                            <a href="/" className="flex items-center font-extrabold text-gray-900 md:py-0">
+                                <span className="items-center justify-center w-24 h-24 text-black">
+                                    <img src={this.state.logo} className="w-full h-full" alt="Ellis Baptist Church"/>
                                 </span>
                             </a>
                         </div>
                     </div>
                     <div className="flex flex-row justify-evenly sm:justify-between">
                         <div className="flex items-center justify-evenly sm:justify-start h-full ml-4 lg:mx-4">
-                            <a href="/"><span class="flex mx-auto md:mr-4 text-lg sm:text-3xl lg:text-2xl font-bold whitespace-nowrap">{this.state.title}</span></a>
+                            <a href="/"><span className="flex mx-auto md:mr-4 text-lg sm:text-3xl lg:text-2xl font-bold whitespace-nowrap">{this.state.title}</span></a>
                         </div>
                     </div>
                     <div className="hidden md:flex container relative flex-row mx-4 w-full items-center justify-evenly whitespace-nowrap">

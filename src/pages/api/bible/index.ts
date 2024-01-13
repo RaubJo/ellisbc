@@ -1,10 +1,9 @@
 
-import _ from 'lodash';
-
+import find from 'lodash/find';
 
 import verses from  '@cms/verses'
 
-export const get = (request: any) => {
+export async function GET(request: any) {
   
     let searchParams = new URLSearchParams(request.url.search)
 
@@ -22,5 +21,5 @@ export const get = (request: any) => {
 
 
 function getVerse(reference: string) {
-  return _.find(verses, (o) => { return o.reference == reference })   
+  return find(verses, (o) => { return o.reference == reference })   
 }

@@ -9,7 +9,8 @@
 			"@layouts/*": ["src/layouts/*"],
 			"@icons/*": ["src/icons/*"],
       "@cms/*": ["src/cms/*"],
-      "@images/*": ["src/images/*"]
+      "@images/*": ["src/images/*"],
+      "react": [ "./node_modules/@types/react" ]
     }
   },
 }

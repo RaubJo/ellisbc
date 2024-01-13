@@ -1,10 +1,10 @@
 import { Component, createRef } from "react";
 import emailjs from '@emailjs/browser';
 import classNames from "classnames";
-import { isEmpty, every } from "lodash";
+import _ from "lodash";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import ReCAPTCHA from "react-google-recaptcha";
+import { GoogleReCaptchaProvider, GoogleReCaptchaCheckbox } from 'react-google-recaptcha-ultimate';
 import axios from 'axios';
 
 export default class extends Component
@@ -15,9 +15,9 @@ export default class extends Component
             submitting: false,
             error: { },
             captcha: {
-                siteKey: '6Lcx3TEpAAAAAEE-mxOdCZQzGI3eAtJ6TlpOLUv7',
-                value: null,
+                sitekey: '6Lcx3TEpAAAAAEE-mxOdCZQzGI3eAtJ6TlpOLUv7',
             },
+            captchaToken: null,
             form: {
                 first_name: '',
                 last_name: '',
@@ -40,7 +40,6 @@ export default class extends Component
         this.clear = this.clear.bind(this)
         this.handle = this.handle.bind(this)
         this.submit = this.submit.bind(this)
-        this.isFormFilled = this.isFormFilled.bind(this)
         this.handleChange = this.handleChange.bind(this)
 
         this.reCaptchaRef = createRef();
@@ -69,17 +68,10 @@ export default class extends Component
         })
     }
 
-    isFormFilled() {
-        return ! every(this.state.form, (value, key) => ! isEmpty(value)) 
-    }
-
-    handleChange = value => {
+    handleChange(value) {
         this.setState({
-            ...this.state,
-            captcha: {
-                value: value
-            }
-        });
+            captchaToken: value
+        })
       };
 
     submit(e) {
@@ -89,7 +81,7 @@ export default class extends Component
             return false
         }
 
-        if(isEmpty(this.state.captcha.value)) {
+        if(_.isEmpty(this.state.captToken)) {
             toast.warning('Please verify the reCAPTCHA', {
                 position: "bottom-right",
                 autoClose: 4000,
@@ -106,7 +98,7 @@ export default class extends Component
         this.setState({ submitting: true})
 
         axios.post('/api/verify', {
-            token: this.state.captcha.value
+            token: this.state.captchaToken
         })
         .then((response) => {
 
@@ -221,7 +213,7 @@ export default class extends Component
                                     onChange={this.handle}
                                     id="phone"
                                     className={classNames(this.state.styles.default, this.state.styles.focus, this.state.styles.hover)}
-                                    value={this.state.form.email}
+                                    value={this.state.form.phone}
                                     required
                                 />
                             </label>
@@ -242,12 +234,22 @@ export default class extends Component
                     </div>
                     <div className="flex flex-col md:flex-row mt-6 md:justify-between">
 
-                    <ReCAPTCHA
+                    {/* <ReCAPTCHA
                         ref={this.reCaptchaRef}
                         sitekey={this.state.captcha.siteKey}
                         onChange={this.handleChange}
                         className="mx-auto mb-4 md:ml-0"
-                    />
+                    /> */}
+
+                    <GoogleReCaptchaProvider
+                        type="v2-checkbox"
+                        siteKey={this.state.captcha.sitekey}
+                    >
+                        <GoogleReCaptchaCheckbox
+                            callback={this.handleChange()}
+                            className="mx-auto mb-4 md:ml-0"
+                        />
+                    </GoogleReCaptchaProvider>
                         <button 
                             className="
                                 inline-flex
@@ -270,7 +272,6 @@ export default class extends Component
                                 disabled:opacity-50
                             "
                             type="submit"
-                            disabled={this.isFormFilled()}
                         >
                             Submit
                         </button>

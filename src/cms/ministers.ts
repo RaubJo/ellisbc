@@ -22,7 +22,7 @@ const ministers: Profile[] = [
         name: "Colin Pritchett",
         image_path: "colin",
         position: Position.Assistant,
-        bio: "Colin and Lacey have three children and love serving at EBC."
+        // bio: "Colin and Lacey have three children and love serving at EBC."
     },
     {
         name: "Josh McIntyre",
@@ -33,7 +33,7 @@ const ministers: Profile[] = [
         name: "Joseph Raub",
         image_path: "joseph",
         position: Position.Mission,
-        bio: "Joseph and Abigail are preparing to be sent by EBC to the field of Thailand."
+        // bio: "Joseph and Abigail are preparing to be sent by EBC to the field of Thailand."
     },
     {
         name: "Monty Cox",

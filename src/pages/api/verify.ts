@@ -1,4 +1,4 @@
-export async function post({ request }) {
+export async function POST({ request }) {
     const data = await request.json();
   
     const url = import.meta.env.GOOGLE_RECAPTCHA_URL

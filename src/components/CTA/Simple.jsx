@@ -12,9 +12,9 @@ export default class extends Component
 
     render() {
         return(
-            <div class="flex flex-col mx-auto items-center my-4">
-                <p class="justify-self-center">{this.state.text}</p>
-                <div class="flex flex-row mx-auto justify-evenly w-full">
+            <div className="flex flex-col mx-auto items-center my-4">
+                <p className="justify-self-center">{this.state.text}</p>
+                <div className="flex flex-row mx-auto justify-evenly w-full">
                     <Button href="/contact/us" text="Contact Us" />
                     <Button href="/about/us" text="About Us"/>
                 </div>
