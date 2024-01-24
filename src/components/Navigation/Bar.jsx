@@ -46,10 +46,10 @@ export default class extends Component
                     <div className="flex flex-row justify-evenly sm:justify-between">
                         <div className="flex items-center justify-evenly sm:justify-start h-full ml-4 lg:mx-4 text-black">
                             <a href="/">
-                                <span className="hidden lg:flex mx-auto md:mr-4 text-lg sm:text-3xl lg:text-2xl font-bold text-black whitespace-nowrap">
+                                <span className="flex mx-auto md:mr-4 sm:text-md md:text-lg sm:text-3xl lg:text-2xl font-bold text-black whitespace-nowrap">
                                     {this.state.title}
                                 </span>
-                                <span className="hidden lg:flex mx-auto font-light text-gray-500 whitespace-nowrap">
+                                <span className="flex mx-auto font-light text-gray-500 whitespace-nowrap">
                                     {this.state.subtitle}
                                 </span>
                             </a>
