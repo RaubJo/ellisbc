@@ -22,7 +22,7 @@ const links: Link[] = [
     },
     {
         text: "Give",
-        href: "https://pushpay.com/g/ellisbc?src=hpp",
+        href: "https://ellisbc.churchtrac.com/give",
         target: "_blank"
     }
 
