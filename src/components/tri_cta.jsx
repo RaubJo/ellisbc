@@ -57,17 +57,17 @@ export default function TriCTA() {
                 <For each={cta()}>
                     {({title, subtitle, image}) => 
                         <div class="w-4/5 md:w-1/3 flex flex-col items-center gap-4 mx-auto">
-                            <div class="group size-48 lg:size-60 relative cursor-pointer flex">
+                            <div class="group size-48 lg:size-52 relative cursor-pointer flex">
                                 <img
                                     src={image.src}
                                     class="absolute m-auto transition-opacity group-hover:opacity-0"
                                 />
-                                <div class="absolute inset-0 bg-[#F3616C] opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <div class="absolute inset-0 F3616C] opacity-0 group-hover:opacity-100 transition-opacity" />
                                 {icons[title.toLowerCase()]}
                             </div>
-                            <h1 class="font-serif uppercase text-black text-4xl lg:text-5xl">{title}</h1>
-                            <div class="w-2/5 h-px bg-black mx-auto"/>
-                            <p class="w-2/3 text-black font-sans text-sm lg:text-lg text-center">{subtitle}</p>
+                            <h1 class="font-serif uppercase text-blue-100 text-4xl">{title}</h1>
+                            <div class="w-2/5 h-px bg-black/80 mx-auto"/>
+                            <p class="w-2/3 text-blue-100 font-sans text-sm lg:text-lg text-center">{subtitle}</p>
                         </div> 
                     }
 

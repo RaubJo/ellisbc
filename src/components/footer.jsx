@@ -30,16 +30,16 @@ const links = [
 
 export default function Footer() {
     return (
-        <footer class="w-screen bg-[#1D263D] flex-col md:flex-row flex relative overflow-y-hidden pt-50">
-                <LogoWordmarkCutOff class="hidden sm:block pointer-events-none max-w-300 left-1/2 -translate-x-1/2 w-full mb-0 absolute opacity-11 bottom-0"></LogoWordmarkCutOff>
-                <div class="container max-w-5xl flex flex-col sm:flex-row text-lg md:text-2xl w-full font-sans mb-10 mt-auto md:mx-auto">
+        <footer class="w-screen bg-blue-100 flex-col md:flex-row flex relative overflow-y-hidden pt-64">
+                <LogoWordmarkCutOff class="hidden sm:block pointer-events-none max-w-250 left-1/2 -translate-x-1/2 w-full mb-0 absolute opacity-11 bottom-0"></LogoWordmarkCutOff>
+                <div class="container max-w-5xl flex flex-col sm:flex-row text-base md:text-lg w-full font-sans mb-10 mt-auto md:mx-auto">
                     <LogoWordmark class="sm:hidden pointer-events-none grow mx-auto px-10 mb-10 min-w-75" />
                     <div class="flex-col flex gap-4 w-fit [--icon-size:--spacing(8)] md:[--icon-size:--spacing(10)] mx-auto sm:ml-10 justify-end">
                         <Info />
                         <SocialIcons /> 
                     </div>
 
-                    <div class="hidden sm:flex flex-col justify-end gap-5 mr-10 md:flex-row md:mb-10 md:mt-auto md:w-1/2 md:gap-auto md:justify-between md:items-end text-xl md:text-2xl">
+                    <div class="hidden sm:flex flex-col justify-end gap-6 md:flex-row md:mb-10 md:mt-auto md:w-1/2 mr-10 md:justify-between md:items-end text-base md:text-lg">
                         <For each={links}>
                             {({label, href}) => <A href={href} class="hover:underline">{label}</A>}
                         </For>
@@ -55,7 +55,7 @@ function Info() {
         <>
         <div class="flex gap-4">
             <Location class="size-(--icon-size) fill-white"/>
-            <A href="#" class="hover:underline font-light">107 W 9th St. <br/> Ellis, KS 67637</A>
+            <A href="#" class="hover:underline font-light" target="_blank">107 W 9th St. <br/> Ellis, KS 67637</A>
         </div>
         <div class="flex gap-4">
             <Phone class="size-(--icon-size) fill-white"/>
@@ -73,10 +73,10 @@ function Info() {
 function SocialIcons() {
     return(
         <div class="flex gap-4 items-center h-fit mx-auto sm:mx-0">
-            <A href="https://www.youtube.com/@EllisBaptistChurch" class="w-fit h-fit">
+            <A href="https://www.youtube.com/@EllisBaptistChurch" class="w-fit h-fit" target="_blank">
                 <Youtube class="h-full w-(--icon-size) fill-white hover:fill-[#FF0000]" />
             </A>
-            <A href="https://www.facebook.com/www.ellisbc.org" class="h-full flex items-center">
+            <A href="https://www.facebook.com/www.ellisbc.org" class="h-full flex items-center" target="_blank">
                 <Facebook class="h-[calc(var(--icon-size)-(--spacing(3)))] w-auto fill-white hover:fill-[#0866FF]" />
             </A>
         </div>
