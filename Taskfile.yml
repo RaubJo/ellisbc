@@ -22,10 +22,11 @@ tasks:
       - preview
       - deploy:dev
       - deploy:development
-    cmd: pnpm run build && npx wrangler dev
+    cmd: pnpm run build && npx wrangler deploy --domain dev.ellisbc.org 
+
 
   deploy:production:
     aliases:
       - release
       - deploy:prod
-    cmd: pnpm deploy
+    cmd: pnpm run build && npx wrangler deploy --domain ellisbc.org --domain www.ellisbc.org
