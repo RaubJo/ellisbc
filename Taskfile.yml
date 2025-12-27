@@ -22,7 +22,7 @@ tasks:
       - preview
       - deploy:dev
       - deploy:development
-    cmd: pnpm preview
+    cmd: pnpm run build && npx wrangler dev
 
   deploy:production:
     aliases:

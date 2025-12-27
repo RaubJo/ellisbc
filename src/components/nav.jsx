@@ -31,10 +31,10 @@ export default function Nav() {
             <Logo class="w-38 my-4"/>
 
             <div class="grow flex justify-end items-center text-xl gap-8">
-                <A href="#">About</A>
-                <A href="#">Next Steps</A>
-                <A href="#">Watch</A>
-                <A href="#">Give</A>
+                <A href="about">About</A>
+                <A href="next-steps">Next Steps</A>
+                <A href="https://www.youtube.com/@EllisBaptistChurch/streams" target="_blank">Watch</A>
+                <A href="https://www.facebook.com/www.ellisbc.org" target="_blank">Give</A>
             </div>
         </nav>
     )

@@ -4,7 +4,7 @@ export default function ServiceTimes() {
             <img src="/images/pew.png" class="inset-0 w-full absolute -z-10 h-full object-cover" />
 
             <div class="bg-white h-fit w-fit p-(--padding) pb-0 mx-auto [--padding:--spacing(4)] sm:[--padding:--spacing(8)] md:[--padding:--spacing(10)] mb-18 lg:mb-24 lg:mr-[10vw] lg:ml-auto">
-                <h1 class="font-serif text-blue-100 text-4xl lg:text-5xl mb-10 whitespace-nowrap">Service Times</h1>
+                <h1 class="font-serif text-blue-100 font-bold text-4xl lg:text-5xl mb-10 whitespace-nowrap">Service Times</h1>
 
                 <div class="mb-8">
                     <h2 class="font-sans font-light text-blue-100 text-3xl">Sunday</h2>
