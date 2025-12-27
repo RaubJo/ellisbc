@@ -1,5 +1,11 @@
 {
-	"name": "example-with-tailwindcss",
+	"name": "ellisbc",
+	"description": "Ellis Baptist Church's website powered by solidstart and cloudflare.",
+	"author": {
+		"name": "Joseph Raub",
+		"email": "joseph@raubstudios.com",
+		"url": "https://www.raubstudios.com"
+	},
 	"type": "module",
 	"scripts": {
 		"dev": "vinxi dev",
@@ -10,6 +16,7 @@
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
+		"@solidjs/meta": "^0.29.4",
 		"@solidjs/router": "^0.15.0",
 		"@solidjs/start": "^1.1.0",
 		"solid-js": "^1.9.5",
@@ -19,9 +26,11 @@
 		"@tailwindcss/vite": "^4.0.7",
 		"@types/node": "^25.0.3",
 		"tailwindcss": "^4.0.7",
+		"vite-plugin-solid-svg": "^0.8.1",
+		"vite-tsconfig-paths": "^6.0.3",
 		"wrangler": "^4.56.0"
 	},
 	"engines": {
-		"node": ">=22"
+		"node": ">=24"
 	}
 }

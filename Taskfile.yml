@@ -1,0 +1,31 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  help:
+    desc: "List the tasks and usage."
+    aliases: ["default", "list"]
+    cmd: task  --list
+
+  dev:
+    cmd: pnpm dev
+  
+  build:
+    cmd: pnpm build
+
+  start:
+    cmd: pnpm start
+
+  deploy:preview:
+    aliases:
+      - preview
+      - deploy:dev
+      - deploy:development
+    cmd: pnpm preview
+
+  deploy:production:
+    aliases:
+      - release
+      - deploy:prod
+    cmd: pnpm deploy

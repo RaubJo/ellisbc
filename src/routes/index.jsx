@@ -1,25 +1,19 @@
-import { A } from "@solidjs/router";
-import Counter from "@/components/Counter";
+import TriCTA from "@/components/tri_cta";
+import ServiceTimes from "@/components/service_times";
+import Location from "@/components/location";
+import Events from "@/components/events";
+import Footer from "@/components/footer"
 
-export default function Home() {
+export default function Index() {
   return (
-    <main class="text-center mx-auto text-gray-700 p-4">
-      <h1 class="max-6-xs text-6xl text-sky-700 font-thin uppercase my-16">Hello world!</h1>
-      <Counter />
-      <p class="mt-8">
-        Visit{" "}
-        <a href="https://solidjs.com" target="_blank" class="text-sky-600 hover:underline">
-          solidjs.com
-        </a>{" "}
-        to learn how to build Solid apps.
-      </p>
-      <p class="my-4">
-        <span>Home</span>
-        {" - "}
-        <A href="/about" class="text-sky-600 hover:underline">
-          About Page
-        </A>{" "}
-      </p>
-    </main>
+    <>
+        <div class="absolute bottom-0 left-0 size-10 bg-blue-500 sm:bg-green-500 md:bg-yellow-500 lg:bg-white xl:bg-red-500  z-50"></div>
+    
+        <TriCTA />
+        <ServiceTimes />
+        <Location />
+        <Events />
+        <Footer />
+    </>
   );
 }

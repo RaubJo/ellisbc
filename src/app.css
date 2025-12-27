@@ -1,4 +1,17 @@
 @import "tailwindcss";
+@import "./fonts.css";
+
+
+@theme {
+    --font-seasons: "The Seasons", serif;
+    --font-poppins: "Poppins", ui-serif;
+    --font-nunito-sans: "Nunito Sans", ui-sans-serif;
+
+    --font-numeric: var(--font-poppins);
+    --font-sans: var(--font-nunito-sans);
+    --font-serif: var(--font-seasons);
+}
+
 
 :root {
   --background-rgb: 214, 219, 220;
@@ -15,4 +28,19 @@
 body {
   background: rgb(var(--background-rgb));
   color: rgb(var(--foreground-rgb));
+}
+
+.triangle-container {
+    width: calc(100%+(--spacing(10)*2));
+    display: flex;
+    justify-content: center;
+    @apply bg-green-300 -mx-10
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 250px solid transparent;
+    border-right: 250px solid transparent;
+    border-top: 90px solid black;
 }
