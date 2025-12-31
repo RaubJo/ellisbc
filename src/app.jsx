@@ -13,7 +13,7 @@ export default function App() {
 			<Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 			<Link
 				rel="stylesheet"
-				href="https://fonts.googleapis.com/css2?family=Poppins&family=Nunito+Sans&display=swap"
+				href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Nunito+Sans:wght@200;400;700&display=swap"
 			/>
 
 			<Router

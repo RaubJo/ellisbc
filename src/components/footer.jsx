@@ -9,28 +9,11 @@ import Youtube from "@/icons/Youtube.svg"
 import Facebook from "@/icons/facebook.svg"
 import { For } from "solid-js"
 
-const links = [
-    {
-        label: 'About', 
-        href: '/about'
-    },
-    {
-        label: 'Next Steps', 
-        href: '/next-steps'
-    },
-    {
-        label: 'Watch', 
-        href: 'https://www.youtube.com/@EllisBaptistChurch'
-    },
-        {
-        label: 'Give', 
-        href: 'https://ellisbc.churchtrac.com/give'
-    },
-]
+import links from "@/data/links"
 
 export default function Footer() {
     return (
-        <footer class="w-screen bg-blue-100 flex-col md:flex-row flex relative overflow-y-hidden pt-64">
+        <footer class="w-screen bg-blue-100 flex-col md:flex-row flex relative overflow-y-hidden pt-24 md:pt-64">
                 <LogoWordmarkCutOff class="hidden sm:block pointer-events-none max-w-250 left-1/2 -translate-x-1/2 w-full mb-0 absolute opacity-11 bottom-0"></LogoWordmarkCutOff>
                 <div class="container max-w-5xl flex flex-col sm:flex-row text-base md:text-lg w-full font-sans mb-10 mt-auto md:mx-auto">
                     <LogoWordmark class="sm:hidden pointer-events-none grow mx-auto px-10 mb-10 min-w-75" />
@@ -41,7 +24,7 @@ export default function Footer() {
 
                     <div class="hidden sm:flex flex-col justify-end gap-6 md:flex-row md:mb-10 md:mt-auto md:w-1/2 mr-10 md:justify-between md:items-end text-base md:text-lg">
                         <For each={links}>
-                            {({label, href}) => <A href={href} class="hover:underline">{label}</A>}
+                            {({label, href, target = null}) => <A href={href} target={target ?? "_self"} class="hover:underline">{label}</A>}
                         </For>
                     </div>
                 </div>

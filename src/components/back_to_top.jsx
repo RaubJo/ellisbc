@@ -26,12 +26,12 @@ export default function Nav() {
 		>
 			{isScrolled() && (
 				<button
-					class="fixed right-8 bottom-8 size-16 bg-blue-100 flex cursor-pointer"
+					class="fixed bottom-[calc(var(--size)/2)] right-[calc(var(--size)/2)] size-(--size) bg-blue-100 flex cursor-pointer [--size:--spacing(10)] lg:[--size:--spacing(12)]"
 					onClick={() =>
 						window.scrollTo({ top: 0, behavior: "smooth" })
 					}
 				>
-					<Chevron class="fill-white -rotate-90 m-auto size-12" />
+					<Chevron class="fill-white -rotate-90 m-auto size-[calc(var(--size)-(--spacing(4)))]" />
 				</button>
 			)}
 		</Transition>

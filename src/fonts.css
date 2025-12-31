@@ -45,3 +45,18 @@
 	font-style: italic;
 	font-display: swap;
 }
+
+@font-face {
+	font-family: "The Seasons";
+	src: url("/fonts/The-Seasons-Thin.ttf") format("truetype");
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "The Seasons";
+	src: url("/fonts/The-Seasons-Thin-Italic.ttf") format("truetype");
+	font-weight: 100;
+	font-style: italic;
+	font-display: swap;
+}
