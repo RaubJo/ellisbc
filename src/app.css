@@ -44,15 +44,8 @@
 
 
 :root {
-  --background-rgb: 214, 219, 220;
-  --foreground-rgb: 0, 0, 0;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
     --background-rgb: 0, 0, 0;
     --foreground-rgb: 255, 255, 255;
-  }
 }
 
 body {
@@ -73,4 +66,58 @@ body {
     border-left: 250px solid transparent;
     border-right: 250px solid transparent;
     border-top: 90px solid black;
+}
+
+u {
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
+}
+
+u::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    height: 0.2em;
+    z-index: -1;
+    opacity: 0.75;
+    background-color: var(--color-gray-100);
+    -webkit-mask-image: url("/brushes/brush-3.svg");
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url("/brushes/brush-3.svg");
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    transform: skewX(-12deg) rotate(-1deg) scaleY(-1);
+}
+
+u.yellow::before {
+    @apply bg-gold-100/75;
+    -webkit-mask: url("/brushes/brush-9.svg");
+    mask: url("/brushes/brush-9.svg");
+    transform: skewX(-3deg) rotate(0deg) scaleY(-0.9);
+}
+
+u.blue::before {
+    @apply bg-blue-100/75;
+    -webkit-mask: url("/brushes/brush-10.svg");
+    mask: url("/brushes/brush-10.svg");
+    transform: skewX(-6deg) rotate(-1deg) scaleY(-1);
+}
+
+u.green::before {
+    @apply bg-green-100/75;
+    -webkit-mask: url("/brushes/brush-5.svg");
+    mask: url("/brushes/brush-5.svg");
+    transform: skewX(8deg) rotate(1deg) scaleY(-1);
+}
+
+u.red::before {
+    @apply bg-red-100/75;
+    -webkit-mask: url("/brushes/brush-8.svg");
+    mask: url("/brushes/brush-8.svg");
+    transform: skewX(-4deg) rotate(-0.5deg) scaleY(-1);
 }

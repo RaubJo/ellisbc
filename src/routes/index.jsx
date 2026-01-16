@@ -12,6 +12,11 @@ export default function Index() {
     <>
         <Nav />
         <Hero />
+        <section class="w-full py-12 bg-white px-12 flex">
+            <div class="mx-auto w-4/5 text-center">
+                <p class="mx-auto text-black text-5xl font-sans font-light">Ellis Baptist Church is a <u class="green">soul winning,</u> <u class="blue">disciple making,</u> <u class="yellow">leadership equipping,</u> <u class="red">church planting church</u>.</p>
+            </div>
+        </section>
         <TriCTA />
         <ServiceTimes />
         <Location />

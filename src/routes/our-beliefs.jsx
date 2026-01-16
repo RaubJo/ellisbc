@@ -63,7 +63,7 @@ export default function OurBeliefs() {
                         <div class="relative last:mb-10">
                             <span class="font-poppins absolute -left-14 md:-left-24 text-blue-30 text-4xl font-bold mt-2">{idx()+1}.</span>
                             <h1 class="text-black font-serif text-4xl md:text-5xl mb-4 tracking-wide">{title}</h1>
-                            <p class="text-black/75 leading-relaxed text-base md:text-lg" innerHTML={content} />
+                            <p class="text-black/75 leading-relaxed text-base md:text-lg xl:w-3/4" innerHTML={content} />
                         </div>
                     )}
                 </For>

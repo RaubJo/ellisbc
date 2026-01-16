@@ -7,7 +7,7 @@ import links from "@/data/links"
 import { Presence, Motion } from "solid-motionone"
 
 
-export default function Nav() {
+export default function Nav(props) {
     const [isScrolled, setIsScrolled] = createSignal(false)
     const [open, setOpen] = createSignal(false)
 
@@ -32,12 +32,12 @@ export default function Nav() {
         <nav 
             class="w-full fixed top-0 left-0 min-h-(--height) h-(--height) z-20 px-4 md:px-10 flex transition-all duration-300 [--height:--spacing(24)] lg:[--height:--spacing(32)]"
             classList={{
-                'bg-blue-100': isScrolled(),
+                'bg-blue-100': isScrolled() || !(props?.clear ?? true),
                 'shadow-xl': isScrolled()
             }}
         >
             <A href="/" class="my-auto z-20">
-                <Logo class="w-38"/>
+                <Logo class="w-42 lg:w-50 lg:py-4 transition-all"/>
             </A>
 
             <div class="hidden grow md:flex justify-end items-center text-xl xl:text-2xl gap-8">

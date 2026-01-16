@@ -1,32 +1,14 @@
-# SolidStart
+# Ellis Baptist Church's Website
 
-Everything you need to build a Solid project, powered by [`solid-start`](https://start.solidjs.com);
 
-## Creating a project
+# Churchtrac
 
-```bash
-# create a new project in the current directory
-npm init solid@latest
+## Calendar Feed
 
-# create a new project in my-app
-npm init solid@latest my-app
-```
+Calendar feed url: `https://www.churchtrac.com/ical?ui=<id>`. This is in iCal format.
 
-## Developing
+Linking to events uses this url with the first 6 characters of the event id found in the feed
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+`https://ellisbc.churchtrac.com/em?ei=<eventid>`
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-Solid apps are built with _presets_, which optimise your project for deployment to different environments.
-
-By default, `npm run build` will generate a Node app that you can run with `npm start`. To use a different preset, add it to the `devDependencies` in `package.json` and specify in your `app.config.js`.
-
-## This project was created with the [Solid CLI](https://github.com/solidjs-community/solid-cli)
+If the event has registration then this will link to the page. If there is no registration it will show an error.
