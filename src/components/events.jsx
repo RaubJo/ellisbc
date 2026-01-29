@@ -1,6 +1,7 @@
 import { For, Show, Suspense } from "solid-js"
-import { query, createAsync } from "@solidjs/router";
+import { A, query, createAsync } from "@solidjs/router";
 import useBreakpoints from "@/hooks/useBreakpoints";
+import Chevron from "@/icons/chevron.svg"
 
 const getEvents = query(async () => {
     "use server"
@@ -50,7 +51,7 @@ export default function Events() {
                 <section class="w-full bg-gray-100 py-12 flex">
                     <div class="container max-w-5xl mx-auto px-10" >
                         <h1 class="mb-10 md:mb-12 text-3xl md:text-5xl font-serif text-center sm:text-left font-bold whitespace-nowrap tracking-wide">Upcoming Events</h1>
-                        <div class="flex flex-col sm:flex-row justify-between w-full gap-6">
+                        <div class="flex flex-col sm:flex-row justify-between w-full gap-6 mb-8">
                             <For each={events().slice(0, count())}>
                                 {(event) => 
                                     <div class="bg-gray-30 aspect-3/4 shadow-xl relative w-full mx-auto sm:w-1/2 md:w-1/3 hover:-translate-y-8 transition-all cursor-pointer duration-250">
@@ -63,7 +64,11 @@ export default function Events() {
                             </For>
                         </div>
 
+                        <div class="w-full flex justify-end">
+                            <A href="events" class="font-serif font-bold text-3xl mr-0 ml-auto inline-flex items-center h-fit group hover:bg-gray-40/50 pl-2 py-1 transition-all">More Events <Chevron class="fill-white size-8 my-auto mt-1"/></A>
+                        </div>
                     </div>
+
 
                 </section>
             </Show>

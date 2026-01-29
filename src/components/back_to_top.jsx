@@ -26,7 +26,7 @@ export default function Nav() {
 		>
 			{isScrolled() && (
 				<button
-					class="fixed bottom-[calc(var(--size)/2)] right-[calc(var(--size)/2)] size-(--size) bg-blue-100 flex cursor-pointer [--size:--spacing(10)] lg:[--size:--spacing(12)]"
+					class="fixed bottom-[calc(var(--size)/2)] right-[calc(var(--size)/2)] size-(--size) bg-blue-100 hover:bg-blue-40/50 flex cursor-pointer [--size:--spacing(10)] lg:[--size:--spacing(12)] transition-colors"
 					onClick={() =>
 						window.scrollTo({ top: 0, behavior: "smooth" })
 					}

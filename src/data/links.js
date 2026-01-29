@@ -1,20 +1,24 @@
 export default [
-    {
-        label: 'About', 
-        href: '/about',
-    },
-    {
-        label: 'Next Steps', 
-        href: '/next-steps',
-    },
+    // {
+    //     label: 'About', 
+    //     href: '/about',
+    // },
+    // {
+    //     label: 'Next Steps', 
+    //     href: '/next-steps',
+    // },
     {
         label: 'Watch', 
-        href: 'https://www.youtube.com/@EllisBaptistChurch',
-        target: "_blank",
+        href: 'watch',
     },
-        {
+    {
         label: 'Give', 
         href: 'https://ellisbc.churchtrac.com/give',
+        target: "_blank",
+    },
+    {
+        label: 'Living Faith', 
+        href: 'https://lffellowship.com',
         target: "_blank",
     },
 ]

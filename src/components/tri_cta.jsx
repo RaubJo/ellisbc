@@ -1,9 +1,8 @@
 import Globe from "@/icons/globe.svg"
 import Bible from "@/icons/bible.svg"
 import Church from "@/icons/church.svg"
-import { query, createAsync } from "@solidjs/router"
+import { A, query, createAsync } from "@solidjs/router"
 import { For } from "solid-js"
-import { A } from "@solidjs/router"
 
 
 const getCtas = query(async () => {
@@ -18,7 +17,7 @@ const getCtas = query(async () => {
             },
             title: 'Who We Are',
             subtitle: 'Ordinary people seeking to know Christ, live His truth, and serve others.',
-            href: 'our-mission',
+            href: 'who-we-are',
             icon: 'globe',
         },
         {
@@ -30,7 +29,7 @@ const getCtas = query(async () => {
             },
             title: 'What to Expect',
             subtitle: 'Engaging worship and biblical teaching for all ages.',
-            href: 'what-to-expect',
+            href: 'who-we-are#what-to-expect',
             icon: 'bible',
         },
         {
