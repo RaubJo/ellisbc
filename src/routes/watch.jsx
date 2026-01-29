@@ -4,9 +4,22 @@ import { A, query, createAsync } from "@solidjs/router"
 import Google from "@googleapis/youtube"
 import { GoogleAuth } from 'google-auth-library'
 import credentials from '../../google-services.json'
-import { createEffect, createSignal, For, Show, Suspense } from "solid-js"
+import { createEffect, createSignal, For, onMount, Show, Suspense } from "solid-js"
 
 const channelId = 'UCC-6R8UcZrj5tNfIP8UbtSw'
+
+// Server action to fetch page title
+async function fetchPageTitle(url) {
+    "use server"
+    try {
+        const response = await fetch(url)
+        const html = await response.text()
+        const match = html.match(/<title[^>]*>([^<]+)<\/title>/i)
+        return match?.[1]?.trim() || null
+    } catch {
+        return null
+    }
+}
 
 // External link icon component
 const ExternalLinkIcon = () => (
@@ -17,13 +30,20 @@ const ExternalLinkIcon = () => (
 
 // Component for a link (styled as chip)
 const LinkChip = (props) => {
-    const displayText = () => {
+    const [title, setTitle] = createSignal(null)
+
+    const fallbackText = () => {
         try {
             return new URL(props.href).hostname.replace('www.', '')
         } catch {
             return props.href
         }
     }
+
+    onMount(async () => {
+        const fetchedTitle = await fetchPageTitle(props.href)
+        if (fetchedTitle) setTitle(fetchedTitle)
+    })
 
     return (
         <a
@@ -33,7 +53,7 @@ const LinkChip = (props) => {
             class="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-100/10 text-blue-100 rounded-full text-base hover:bg-blue-100/20 transition-colors"
             onClick={(e) => e.stopPropagation()}
         >
-            <span class="truncate max-w-[200px]">{displayText()}</span>
+            <span class="truncate max-w-[200px]">{title() || fallbackText()}</span>
             <ExternalLinkIcon />
         </a>
     )
