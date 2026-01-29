@@ -8,19 +8,6 @@ import { createEffect, createSignal, For, Show, Suspense } from "solid-js"
 
 const channelId = 'UCC-6R8UcZrj5tNfIP8UbtSw'
 
-// Fetch page title from URL
-const fetchPageTitle = query(async (url) => {
-    "use server"
-    try {
-        const response = await fetch(url)
-        const html = await response.text()
-        const match = html.match(/<title[^>]*>([^<]+)<\/title>/i)
-        return match?.[1]?.trim() || null
-    } catch {
-        return null
-    }
-}, "pageTitle")
-
 // External link icon component
 const ExternalLinkIcon = () => (
     <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -28,10 +15,9 @@ const ExternalLinkIcon = () => (
     </svg>
 )
 
-// Component for a link that fetches its title (styled as chip)
-const LinkWithTitle = (props) => {
-    const title = createAsync(() => fetchPageTitle(props.href))
-    const fallback = () => {
+// Component for a link (styled as chip)
+const LinkChip = (props) => {
+    const displayText = () => {
         try {
             return new URL(props.href).hostname.replace('www.', '')
         } catch {
@@ -45,8 +31,9 @@ const LinkWithTitle = (props) => {
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-100/10 text-blue-100 rounded-full text-base hover:bg-blue-100/20 transition-colors"
+            onClick={(e) => e.stopPropagation()}
         >
-            <span class="truncate max-w-[200px]">{title() || fallback()}</span>
+            <span class="truncate max-w-[200px]">{displayText()}</span>
             <ExternalLinkIcon />
         </a>
     )
@@ -85,7 +72,7 @@ const linkifyText = (text) => {
 
     return parts.map((part) => {
         if (part.match(urlRegex)) {
-            return <LinkWithTitle href={part} />
+            return <LinkChip href={part} />
         }
         return part
     })
@@ -267,7 +254,7 @@ export default function Watch() {
                         </button>
                     </Suspense>
                 </div>
-                <div class="flex-col flex gap-6 overflow-y-scroll px-6 pb-6" onScroll={(e) => setSidebarScrolled(e.target.scrollTop > 0)}>
+                <div class="flex-col flex gap-6 overflow-y-scroll px-6 pb-6 pt-8" onScroll={(e) => setSidebarScrolled(e.target.scrollTop > 0)}>
                     <Show when={videos()} fallback={<SidebarSkeleton />}>
                         <For each={videos()?.filter(v => v.contentDetails?.videoId !== liveStream()?.id?.videoId && v.snippet?.title !== "Ellis Baptist Church Live Stream")}>
                             {(video) => {
@@ -282,6 +269,7 @@ export default function Watch() {
                                             setActive(video)
                                             setIsLive(false)
                                             setShouldAutoplay(true)
+                                            window.scrollTo({ top: 0, behavior: 'smooth' })
                                         }}
                                     >
                                         <div class="relative">
