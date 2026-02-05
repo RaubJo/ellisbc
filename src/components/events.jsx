@@ -7,37 +7,37 @@ const getEvents = query(async () => {
     "use server"
     const placeholder = 'https://placehold.co/300x400/transparent/grey'
     return [
-        {
-            image: {
-                src: placeholder, 
-                width: 300,
-                height: 400,
-                alt: 'Placeholder image'
-            },
-            title: 'Christmas Eve',
-            start_at: (new Date())
+        // {
+        //     image: {
+        //         src: placeholder, 
+        //         width: 300,
+        //         height: 400,
+        //         alt: 'Placeholder image'
+        //     },
+        //     title: 'Christmas Eve',
+        //     start_at: (new Date())
 
-        },
-        {
-            image: {
-                src: placeholder,
-                width: 300,
-                height: 400,
-                alt: 'Placeholder image'
-            },
-            title: 'Christmas',
-            start_at: (new Date())
-        },
-        {
-            image: {
-                src: placeholder,
-                width: 300,
-                height: 400,
-                alt: 'Placeholder image'
-            },
-            title: 'New Year\'s',
-            start_at: (new Date())
-        },
+        // },
+        // {
+        //     image: {
+        //         src: placeholder,
+        //         width: 300,
+        //         height: 400,
+        //         alt: 'Placeholder image'
+        //     },
+        //     title: 'Christmas',
+        //     start_at: (new Date())
+        // },
+        // {
+        //     image: {
+        //         src: placeholder,
+        //         width: 300,
+        //         height: 400,
+        //         alt: 'Placeholder image'
+        //     },
+        //     title: 'New Year\'s',
+        //     start_at: (new Date())
+        // },
     ]
 }, "events-component")
 

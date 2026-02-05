@@ -2,9 +2,9 @@ import { A } from "@solidjs/router";
 
 export default function Location() {
     return (
-        <section class="relative w-full h-fit md:h-screen flex flex-col md:flex-row  justify-end overflow-x-hidden">
-            <img src="/images/map.png" class="inset-0 w-full object-cover scale-200 md:scale-100 -z-10" />
-            <div class="bg-white md:h-full w-full h-1/2 md:w-1/2 lg:w-1/3 px-10 flex md:absolute"> 
+        <section class="relative isolate w-full h-fit md:h-screen flex flex-col md:flex-row  justify-end overflow-x-hidden">
+            <img src="/images/map.png" class="w-full h-64 sm:h-80 md:absolute md:inset-0 md:h-full object-cover scale-200 md:scale-100 z-0" />
+            <div class="relative z-10 bg-white md:h-full w-full h-1/2 md:w-1/2 lg:w-1/3 px-10 flex md:absolute"> 
                 <div class="text-blue-100 font-sans flex flex-col text-lg md:text-2xl gap-4 my-auto py-10">
                     <h1 class="text-4xl lg:text-5xl font-serif font-bold tracking-wide">Our Location</h1>
                     <A href="#">

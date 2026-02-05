@@ -6,7 +6,7 @@ const DropdownItem = (props) => (
     <A
         href={props.href}
         onClick={() => props.onNavigate?.()}
-        class="block px-3.5 py-3 text-base border-l-4 border-l-white hover:border-l-gray-400"
+        class="block px-3.5 py-3 text-base border-l-4 border-l-white hover:border-l-red-100"
     >
         <strong class="block mb-1 font-bold text-gray-900 text-xl">
             {props.title}
