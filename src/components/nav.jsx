@@ -60,19 +60,24 @@ export default function Nav(props) {
                     >
                         <div class="flex flex-col w-fit gap-y-4 pb-8 px-5 text-right">
                             <For
-                                each={navLinks.flatMap((item) => (
-                                    item.columns
-                                        ? [
-                                            { type: "heading", label: item.name },
-                                            ...item.columns
-                                                .flatMap((column) => column.items ?? [])
-                                                .filter((link) => link.title)
-                                                .map((link) => ({
-                                                    type: "link",
-                                                    label: link.title,
-                                                    href: link.href,
-                                                })),
-                                        ]
+                                each={navLinks.flatMap((item) => {
+                                    if (item.columns) {
+                                        const columnLinks = item.columns
+                                            .flatMap((column) => column.items ?? [])
+                                            .filter((link) => link.title)
+                                            .map((link) => ({
+                                                type: "link",
+                                                label: link.title,
+                                                href: link.href,
+                                            }))
+
+                                        return item.mobile === false
+                                            ? columnLinks
+                                            : [{ type: "heading", label: item.name }, ...columnLinks]
+                                    }
+
+                                    return item.mobile === false
+                                        ? []
                                         : [
                                             {
                                                 type: "link",
@@ -81,7 +86,7 @@ export default function Nav(props) {
                                                 target: item.target,
                                             },
                                         ]
-                                ))}
+                                })}
                             >
                                 {(entry, index) => (
                                     <Motion.div

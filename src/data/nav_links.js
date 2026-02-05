@@ -2,6 +2,7 @@ export default [
     {
         name: "About",
         href: "/who-we-are",
+        mobile: false,
         columns: [
             {
                 items: [
@@ -9,6 +10,7 @@ export default [
                     { title: "Our Beliefs", href: "/our-beliefs" },
                     { title: "Who We Are", href: "/who-we-are" },
                     { title: "What to Expect", href: "/who-we-are#what-to-expect" },
+                    { title: "Events", href: "/events" },
                 ],
             },
         ],

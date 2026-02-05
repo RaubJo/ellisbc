@@ -239,10 +239,12 @@ export default function Navigation(props) {
     return (
         <div class="relative z-40 h-fit my-auto">
             <ul class="flex flex-row items-center justify-end gap-3 lg:gap-8 list-none text-white w-full">
-                <For each={props.links}>
+                <For each={props.links ?? []}>
                     {(item) => (
                         <>
-                            <MobileNavLink item={item} class="md:hidden" />
+                            <Show when={item.mobile !== false}>
+                                <MobileNavLink item={item} class="md:hidden" />
+                            </Show>
                             <NavLink
                                 item={item}
                                 class="hidden md:block"
