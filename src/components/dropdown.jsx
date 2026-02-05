@@ -1,4 +1,5 @@
 import { A } from "@solidjs/router"
+import isEmpty from "lodash/isEmpty"
 import { createSignal, Show, For, onMount, onCleanup } from "solid-js"
 
 const DropdownItem = (props) => (
@@ -80,12 +81,14 @@ const ChevronIcon = (props) => (
 const NavLink = (props) => {
     return (
         <Show
-            when={props.item.columns}
+            when={!isEmpty(props.item.columns)}
             fallback={
                 <li>
                     <A
                         href={props.item.href ?? "#"}
-                        class="inline-flex items-center justify-center h-10 px-4 py-2 font-bold transition-colors hover:bg-green-700 w-max"
+                        target={props.item.target ?? "_self"}
+                        rel={props.item.target === "_blank" ? "noreferrer" : undefined}
+                        class="inline-flex items-center justify-center h-10 px-4 py-2 font-bold transition-colors hover:text-blue-20 w-max"
                     >
                         {props.item.name}
                     </A>
@@ -93,19 +96,40 @@ const NavLink = (props) => {
             }
         >
             <li class={props.class}>
-                <button
-                    class={`inline-flex items-center justify-center h-10 px-3 lg:px-4 py-5 text-lg transition-colors w-max cursor-pointer ${
-                        props.isActive
-                            ? "bg-green-600 border-green-600"
-                            : "hover:bg-green-700"
-                    }`}
-                    onMouseOver={(e) => props.onHover?.(e.currentTarget)}
-                    onMouseLeave={() => props.onLeave?.()}
-                    onClick={() => props.item.key && window.open(props.item.key, "_self")}
+                <Show
+                    when={props.item.href}
+                    fallback={
+                        <button
+                            class={`inline-flex items-center justify-center h-10 px-3 lg:px-4 py-5 text-lg transition-colors w-max cursor-pointer ${
+                                ""
+                            } ${
+                                props.isActive && "text-blue-20"
+                            }`}
+                            onMouseOver={(e) => props.onHover?.(e.currentTarget)}
+                            onMouseLeave={() => props.onLeave?.()}
+                            onClick={() => props.item.key && window.open(props.item.key, "_self")}
+                        >
+                            <span class="font-bold">{props.item.name}</span>
+                            <ChevronIcon rotated={props.isActive} />
+                        </button>
+                    }
                 >
-                    <span class="font-bold">{props.item.name}</span>
-                    <ChevronIcon rotated={props.isActive} />
-                </button>
+                    <A
+                        href={props.item.href}
+                        target={props.item.target ?? "_self"}
+                        rel={props.item.target === "_blank" ? "noreferrer" : undefined}
+                        class={`inline-flex items-center justify-center h-10 px-3 lg:px-4 py-5 text-lg transition-colors w-max ${
+                            ""
+                        } ${
+                            props.isActive && "text-blue-20"
+                        }`}
+                        onMouseOver={(e) => props.onHover?.(e.currentTarget)}
+                        onMouseLeave={() => props.onLeave?.()}
+                    >
+                        <span class="font-bold">{props.item.name}</span>
+                        <ChevronIcon rotated={props.isActive} />
+                    </A>
+                </Show>
             </li>
         </Show>
     )
@@ -214,7 +238,7 @@ export default function Navigation(props) {
 
     return (
         <div class="relative z-40 h-fit my-auto">
-            <ul class="flex flex-row items-center justify-center gap-3 lg:gap-8 list-none text-white w-full">
+            <ul class="flex flex-row items-center justify-end gap-3 lg:gap-8 list-none text-white w-full">
                 <For each={props.links}>
                     {(item) => (
                         <>
@@ -233,7 +257,7 @@ export default function Navigation(props) {
 
             <div
                 ref={dropdownRef}
-                class={`absolute top-0 pt-3 duration-200 ease-out -translate-x-1/2 translate-y-10 z-50 transition-all ${
+                class={`absolute top-0 pt-3 duration-200 ease-out -translate-x-1/2 translate-y-10 z-50 transition-[opacity,transform] ${
                     menuOpen()
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-90 pointer-events-none"

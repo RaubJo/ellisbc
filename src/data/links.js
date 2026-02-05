@@ -1,8 +1,8 @@
 export default [
-    // {
-    //     label: 'About', 
-    //     href: '/about',
-    // },
+    {
+        label: 'About', 
+        href: '/about',
+    },
     // {
     //     label: 'Next Steps', 
     //     href: '/next-steps',

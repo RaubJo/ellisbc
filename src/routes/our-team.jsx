@@ -42,7 +42,7 @@ function ObfuscatedEmailLink(props) {
 
     return (
         <A
-            class="block text-left font-serif text-3xl text-blue-100 hover:text-red-100 underline-offset-4"
+            class="block text-left font-sans text-3xl text-blue-100 hover:text-red-100 underline-offset-4"
             href={href()}
             aria-label={`Email ${props.name}`}
             onClick={handleClick}

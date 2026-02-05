@@ -8,6 +8,7 @@ const highlights = [
     },
     {
         label: 'Our Mission',
+        href: '/our-mission',
         image: '/images/mission.jpg'
     },
     {
@@ -20,12 +21,6 @@ const highlights = [
         image: '/images/calendar.jpg',
         href: '/events'
     },
-    {
-        label: 'Living Faith Fellowship',
-    },
-    {
-        label: 'Watch Services'
-    },
 ]
 
 export default function Highlights() {
@@ -37,7 +32,7 @@ export default function Highlights() {
                         const Card = () => (
                             <>
                                 {image && (<img src={image} class="inset-0 object-cover absolute w-full h-full opacity-75 group-hover:opacity-90 transition-opacity"/>)}
-                                <span class="m-auto text-white font-bold font-serif text-2xl z-1 uppercase tracking-widest text-shadow-lg">{label}</span>
+                                <span class="m-auto text-white font-bold font-serif text-xl lg:text-2xl z-1 uppercase tracking-widest text-shadow-lg">{label}</span>
                             </>
                         )
 

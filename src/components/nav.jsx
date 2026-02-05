@@ -1,9 +1,10 @@
 import Logo from "@/icons/logo_wordmark_full.svg"
 import { A } from "@solidjs/router"
-import { createSignal, onMount, onCleanup } from "solid-js"
+import { createSignal, onMount, onCleanup, Show } from "solid-js"
 import Hamburger from "@/components/hamburger"
+import Dropdown from "@/components/dropdown"
 
-import links from "@/data/links"
+import navLinks from "@/data/nav_links"
 import { Presence, Motion } from "solid-motionone"
 
 
@@ -40,10 +41,8 @@ export default function Nav(props) {
                 <Logo class="w-36 lg:w-44 lg:py-3 transition-all"/>
             </A>
 
-            <div class="hidden grow md:flex justify-end items-center text-lg xl:text-xl gap-8">
-                <For each={links}>
-                    {({label, href, target = null}) => <A href={href} target={target ?? "_self"} class="hover:underline">{label}</A>}
-                </For>
+            <div class="hidden grow md:flex justify-end items-center">
+                <Dropdown links={navLinks} />
             </div>
 
             <div class="md:hidden flex justify-end grow  w-fit items-center z-20">
@@ -60,8 +59,31 @@ export default function Nav(props) {
                         transition={{ duration: 0.3, easing: "ease-in-out" }}
                     >
                         <div class="flex flex-col w-fit gap-y-4 pb-8 px-5 text-right">
-                            <For each={links}>
-                                {({label, href, target = null}, index) => (
+                            <For
+                                each={navLinks.flatMap((item) => (
+                                    item.columns
+                                        ? [
+                                            { type: "heading", label: item.name },
+                                            ...item.columns
+                                                .flatMap((column) => column.items ?? [])
+                                                .filter((link) => link.title)
+                                                .map((link) => ({
+                                                    type: "link",
+                                                    label: link.title,
+                                                    href: link.href,
+                                                })),
+                                        ]
+                                        : [
+                                            {
+                                                type: "link",
+                                                label: item.name,
+                                                href: item.href,
+                                                target: item.target,
+                                            },
+                                        ]
+                                ))}
+                            >
+                                {(entry, index) => (
                                     <Motion.div
                                         initial={{ x: 50, opacity: 0 }}
                                         animate={{ x: 0, opacity: 1 }}
@@ -72,9 +94,23 @@ export default function Nav(props) {
                                         }}
                                         exit={{opacity: 0}}
                                     >
-                                        <A href={href} target={target ?? "_self"} class="hover:underline text-2xl">
-                                            {label}
-                                        </A>
+                                        <Show
+                                            when={entry.type === "link"}
+                                            fallback={
+                                                <div class="text-2xl font-bold text-right pt-2">
+                                                    {entry.label}
+                                                </div>
+                                            }
+                                        >
+                                            <A
+                                                href={entry.href}
+                                                target={entry.target ?? "_self"}
+                                                rel={entry.target === "_blank" ? "noreferrer" : undefined}
+                                                class="hover:underline text-2xl"
+                                            >
+                                                {entry.label}
+                                            </A>
+                                        </Show>
                                     </Motion.div>
                                 )}
                             </For>

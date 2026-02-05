@@ -7,9 +7,9 @@ import Location from "@/icons/location.svg"
 import Envelope from "@/icons/envelope.svg"
 import Youtube from "@/icons/Youtube.svg"
 import Facebook from "@/icons/facebook.svg"
-import { For } from "solid-js"
+import { For, Show } from "solid-js"
 
-import links from "@/data/links"
+import navLinks from "@/data/nav_links"
 
 export default function Footer() {
     return (
@@ -23,8 +23,14 @@ export default function Footer() {
                     </div>
 
                     <div class="hidden sm:flex flex-col justify-end gap-6 md:flex-row md:mb-10 md:mt-auto md:w-1/2 mr-10 md:justify-between md:items-end text-base md:text-lg">
-                        <For each={links}>
-                            {({label, href, target = null}) => <A href={href} target={target ?? "_self"} class="hover:underline">{label}</A>}
+                        <For each={navLinks}>
+                            {({name, href, target = null}) => (
+                                <Show when={href}>
+                                    <A href={href} target={target ?? "_self"} class="hover:underline">
+                                        {name}
+                                    </A>
+                                </Show>
+                            )}
                         </For>
                     </div>
                 </div>

@@ -3,6 +3,7 @@ import Hero from "@/components/hero"
 import Footer from "@/components/footer"
 import BackToTop from "@/components/back_to_top"
 import { query, createAsync } from "@solidjs/router"
+import Highlights from "@/components/highlights"
 
 const getMission = query(async () => {
     "use server"
@@ -57,6 +58,7 @@ export default function OurMission() {
                 )}
             </For>
         </section>
+        <Highlights />
         <Footer />
         <BackToTop />
     </>
