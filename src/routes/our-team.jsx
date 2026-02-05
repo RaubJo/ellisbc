@@ -42,7 +42,7 @@ function ObfuscatedEmailLink(props) {
 
     return (
         <A
-            class="font-serif text-2xl text-blue-100 hover:text-red-100 underline-offset-4"
+            class="block text-left font-serif text-3xl text-blue-100 hover:text-red-100 underline-offset-4"
             href={href()}
             aria-label={`Email ${props.name}`}
             onClick={handleClick}
@@ -59,19 +59,21 @@ export default function OurTeam() {
         <>
             <Nav />
             <Hero angles={false} subtitle="Our Team" />
-            <section class="w-full px-8 md:px-16 py-12 md:py-16 flex bg-white">
-                    <div class="grid grid-cols-3 w-full gap-6 p-2 min-h-fit">
-                        <For each={team()}>
-                            {({ name, emailCodes, image }) => (
-                                <div class="bg-white aspect-5/4 mb-8">
-                                    <div class="w-full mb-4 overflow-hidden">
+            <section class="w-full px-5 sm:px-8 md:px-16 py-10 md:py-16 flex">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-6 sm:gap-8 p-2 min-h-fit">
+                    <For each={team()}>
+                        {({ name, emailCodes, image }) => (
+                            <div class="bg-white mb-6 sm:mb-8 flex flex-col w-full">
+                                <div className="mx-auto w-4/5 sm:w-full">
+                                    <div class="mb-4 overflow-hidden aspect-4/5">
                                         <img src={image} alt={name} class="w-full h-full object-cover" />
                                     </div>
                                     <ObfuscatedEmailLink name={name} emailCodes={emailCodes} />
                                 </div>
-                            )}
-                        </For>
-                    </div>
+                            </div>
+                        )}
+                    </For>
+                </div>
             </section>
             <Footer />
             <BackToTop />

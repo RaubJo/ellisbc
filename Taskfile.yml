@@ -6,7 +6,7 @@ tasks:
   help:
     desc: "List the tasks and usage."
     aliases: ["default", "list"]
-    cmd: task  --list
+    cmd: task --list
 
   dev:
     cmd: pnpm dev
