@@ -46,7 +46,7 @@ function Info() {
         </div>
         <div class="flex gap-4">
             <Envelope class="size-(--icon-size) fill-white"/>
-            <A href="mailto:info@ellisbc.org font-light">info@ellisbc.org</A>
+            <A href="mailto:info@ellisbc.org">info@ellisbc.org</A>
         </div>
         </>
     )

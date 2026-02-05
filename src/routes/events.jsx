@@ -1,5 +1,6 @@
 import Footer from "@/components/footer"
 import Nav from "@/components/nav"
+import Highlights from "@/components/highlights"
 
 
 import { createAsync, query } from "@solidjs/router"
@@ -33,7 +34,7 @@ const getEvents = query(async () => {
             start_at: dayjs(e.getFirstPropertyValue('dtstart')).toISOString(),
             end_at: dayjs(e.getFirstPropertyValue('dtend')).toISOString(),
         })).sort((a, b) => dayjs(a.start_at).diff(dayjs(b.start_at)))
-})
+}, 'events')
 
 export default function Events() {
     const events = createAsync(() => getEvents())
@@ -64,6 +65,7 @@ export default function Events() {
                 </For>
             </div>
         </section>
+        <Highlights />
         <Footer />
         </>
     );

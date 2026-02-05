@@ -8,7 +8,7 @@ export default function ServiceTimes() {
 
                 <div class="mb-8">
                     <h2 class="font-sans text-blue-100 text-3xl">Sunday</h2>
-                    <p class="font-sans font-light text-blue-100 text-xl">Sunday School 10:00am</p>
+                    <p class="font-sans font-light text-blue-100 text-xl">Bible Study 10:00am</p>
                     <p class="font-sans font-light text-blue-100 text-xl">Worship 11:00am</p>    
                 </div>
                

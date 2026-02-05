@@ -3,6 +3,7 @@ import Hero from "@/components/hero"
 import Footer from "@/components/footer"
 import BackToTop from "@/components/back_to_top"
 import { createAsync, query } from "@solidjs/router"
+import Highlights from "@/components/highlights"
 
 const getBeliefs = query(async () => {
     "use server"
@@ -45,7 +46,7 @@ const getBeliefs = query(async () => {
         },
 
     ]
-})
+}, 'beliefs')
 
 
 export default function OurBeliefs() {
@@ -69,6 +70,7 @@ export default function OurBeliefs() {
                 </For>
             </div>
         </section>
+        <Highlights />
         <Footer />
         <BackToTop />
     </>

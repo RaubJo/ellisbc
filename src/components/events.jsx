@@ -39,7 +39,7 @@ const getEvents = query(async () => {
             start_at: (new Date())
         },
     ]
-}, "events")
+}, "events-component")
 
 export default function Events() {
     const events = createAsync(() => getEvents())

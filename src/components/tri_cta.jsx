@@ -1,6 +1,3 @@
-import Globe from "@/icons/globe.svg"
-import Bible from "@/icons/bible.svg"
-import Church from "@/icons/church.svg"
 import { A, query, createAsync } from "@solidjs/router"
 import { For } from "solid-js"
 
@@ -18,7 +15,6 @@ const getCtas = query(async () => {
             title: 'Who We Are',
             subtitle: 'Ordinary people seeking to know Christ, live His truth, and serve others.',
             href: 'who-we-are',
-            icon: 'globe',
         },
         {
             image: {
@@ -30,7 +26,6 @@ const getCtas = query(async () => {
             title: 'What to Expect',
             subtitle: 'Engaging worship and biblical teaching for all ages.',
             href: 'who-we-are#what-to-expect',
-            icon: 'bible',
         },
         {
             image: {
@@ -42,16 +37,9 @@ const getCtas = query(async () => {
             title: 'What We Believe',
             subtitle: 'Biblical truth. Christ-centered faith. Lives changed by God’s grace.',
             href: 'our-beliefs',
-            icon: 'church',
         },
     ]
 }, "ctas")
-
-const icons = {
-    globe: <Globe class="relative size-32 m-auto opacity-0 group-hover:opacity-100 transition-opacity" />,
-    bible: <Bible class="relative size-32 m-auto opacity-0 group-hover:opacity-100 transition-opacity" />,
-    church: <Church class="relative size-32 m-auto opacity-0 group-hover:opacity-100 transition-opacity" />,
-}
 
 export default function TriCTA() {
     const cta = createAsync(() => getCtas())
@@ -61,15 +49,13 @@ export default function TriCTA() {
             <div class="flex gap-8 lg:justify-around w-fit xl:w-full mx-auto xl:px-12 flex-col md:flex-row">
 
                 <For each={cta()}>
-                    {({title, subtitle, image, href, icon = null}) => 
+                    {({title, subtitle, image, href}) => 
                         <A href={href} class="w-4/5 md:w-1/3 flex flex-col items-center gap-4 mx-auto group">
-                            <div class="size-42 xl:size-64 relative cursor-pointer flex">
+                            <div class="size-42 lg:size-52 xl:size-64 relative cursor-pointer flex">
                                 <img
                                     src={image.src}
-                                    class="absolute m-auto transition-opacity group-hover:opacity-0 aspect-square inset-0"
+                                    class="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-90 transition-opacity"
                                 />
-                                <div class="absolute inset-0 bg-red-80 opacity-0 group-hover:opacity-100 transition-opacity duration-250" />
-                                {icons[icon ?? title.toLowerCase()]}
                             </div>
                             <h1 class="font-serif uppercase text-blue-100 text-2xl lg:text-3xl whitespace-nowrap">{title}</h1>
                             <div class="w-2/5 h-px bg-black/80 mx-auto"/>

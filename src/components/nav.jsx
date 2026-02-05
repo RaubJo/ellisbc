@@ -37,10 +37,10 @@ export default function Nav(props) {
             }}
         >
             <A href="/" class="my-auto z-20">
-                <Logo class="w-42 lg:w-50 lg:py-4 transition-all"/>
+                <Logo class="w-36 lg:w-44 lg:py-3 transition-all"/>
             </A>
 
-            <div class="hidden grow md:flex justify-end items-center text-xl xl:text-2xl gap-8">
+            <div class="hidden grow md:flex justify-end items-center text-lg xl:text-xl gap-8">
                 <For each={links}>
                     {({label, href, target = null}) => <A href={href} target={target ?? "_self"} class="hover:underline">{label}</A>}
                 </For>
