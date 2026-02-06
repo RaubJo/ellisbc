@@ -36,21 +36,18 @@
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
 	 */
-	"vars": {  
-        "APP_TIMEZONE": "America/Chicago",
-        "CHURCHTRAC_CALENDAR_FEED": "https://www.churchtrac.com/ical?ui=E95F0D21",
-        "SERVER_BASE_URL": "https://dev.ellisbc.org",
-        "VITE_BASE_URL": "https://dev.ellisbc.org"
-     },
+	"vars": { },
     "env": {
         "dev": {
             "vars": {
+                "CHURCHTRAC_CALENDAR_FEED": "https://www.churchtrac.com/ical?ui=E95F0D21",
                 "SERVER_BASE_URL": "https://dev.ellisbc.org",
                 "VITE_BASE_URL": "https://dev.ellisbc.org"
             }
         },
         "production": {
             "vars": {
+                "CHURCHTRAC_CALENDAR_FEED": "https://www.churchtrac.com/ical?ui=E95F0D21",
                 "SERVER_BASE_URL": "https://ellisbc.org",
                 "VITE_BASE_URL": "https://ellisbc.org"
             }

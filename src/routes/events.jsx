@@ -7,36 +7,26 @@ import dayjs from 'dayjs'
 import Utc from 'dayjs/plugin/utc'
 import Timezone from 'dayjs/plugin/timezone'
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
-import { For, Show } from "solid-js"
+import { For, Show, createResource, onMount } from "solid-js"
 import { getRequestEvent } from "solid-js/web"
 
 dayjs.extend(Utc)
 dayjs.extend(Timezone)
 dayjs.extend(isSameOrAfter)
 
-const getEvents = query(async () => {
-    const url = (() => {
-        if (typeof window !== "undefined") return "/api/events"
-        const event = getRequestEvent()
-        const base =
-            event?.request?.url
-                ? new URL(event.request.url).origin
-                : import.meta.env.SERVER_BASE_URL ??
-                  import.meta.env.VITE_BASE_URL ??
-                  "http://localhost"
-        try {
-            return new URL("/api/events", base).toString()
-        } catch {
-            return "http://localhost/api/events"
-        }
-    })()
-    const response = await fetch(url, { cache: "no-store" })
+const getEvents = async () => {
+    if (typeof window === "undefined") return []
+    const response = await fetch("/api/events", { cache: "no-store" })
     if (!response.ok) return []
     return response.json()
-}, "events")
+}
 
 export default function Events() {
-    const events = createAsync(() => getEvents())
+    const [events, { refetch }] = createResource(getEvents)
+
+    onMount(() => {
+        refetch()
+    })
 
     return (
         <>
