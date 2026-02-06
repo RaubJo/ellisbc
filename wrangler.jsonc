@@ -38,8 +38,24 @@
 	 */
 	"vars": {  
         "APP_TIMEZONE": "America/Chicago",
-        "CHURCHTRAC_CALENDAR_FEED": "https://www.churchtrac.com/ical?ui=E95F0D21"
-     }
+        "CHURCHTRAC_CALENDAR_FEED": "https://www.churchtrac.com/ical?ui=E95F0D21",
+        "SERVER_BASE_URL": "https://dev.ellisbc.org",
+        "VITE_BASE_URL": "https://dev.ellisbc.org"
+     },
+    "env": {
+        "dev": {
+            "vars": {
+                "SERVER_BASE_URL": "https://dev.ellisbc.org",
+                "VITE_BASE_URL": "https://dev.ellisbc.org"
+            }
+        },
+        "production": {
+            "vars": {
+                "SERVER_BASE_URL": "https://ellisbc.org",
+                "VITE_BASE_URL": "https://ellisbc.org"
+            }
+        }
+    }
 	/**
 	 * Service Bindings (communicate between multiple Workers)
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
