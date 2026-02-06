@@ -36,7 +36,10 @@
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
 	 */
-	// "vars": {  "MY_VARIABLE": "production_value" }
+	"vars": {  
+        "APP_TIMEZONE": "America/Chicago",
+        "CHURCHTRAC_CALENDAR_FEED": "https://www.churchtrac.com/ical?ui=E95F0D21"
+     }
 	/**
 	 * Service Bindings (communicate between multiple Workers)
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings

@@ -2,9 +2,7 @@ import Footer from "@/components/footer"
 import Nav from "@/components/nav"
 import Highlights from "@/components/highlights"
 
-
 import { createAsync, query } from "@solidjs/router"
-import ICAL from "ical.js"
 import dayjs from 'dayjs'
 import Utc from 'dayjs/plugin/utc'
 import Timezone from 'dayjs/plugin/timezone'
@@ -16,30 +14,10 @@ dayjs.extend(Timezone)
 dayjs.extend(isSameOrAfter)
 
 const getEvents = query(async () => {
-    "use server"
-
-    const parse = (text) => {
-        return text
-            ?.replaceAll('&amp;', '&')
-    }
-
-    const tz = process.env.APP_TIMEZONE
-    const response = await fetch(process.env.CHURCHTRAC_CALENDAR_FEED, {
-        cache: "no-store",
-    })
-    const stream = await response.text()
-
-    return (new ICAL.Component(ICAL.parse(stream)).getAllSubcomponents('vevent'))
-        .map((e) => ({
-            id: e.getFirstPropertyValue('uid'),
-            title: parse(e.getFirstPropertyValue('summary')),
-            description: parse(e.getFirstPropertyValue('description')),
-            start_at: dayjs(e.getFirstPropertyValue('dtstart')).toISOString(),
-            end_at: dayjs(e.getFirstPropertyValue('dtend')).toISOString(),
-        }))
-        .filter((event) => dayjs(event.end_at).isSameOrAfter(dayjs()))
-        .sort((a, b) => dayjs(a.start_at).diff(dayjs(b.start_at)))
-}, 'events')
+    const response = await fetch("/api/events", { cache: "no-store" })
+    if (!response.ok) return []
+    return response.json()
+}, "events")
 
 export default function Events() {
     const events = createAsync(() => getEvents())

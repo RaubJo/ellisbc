@@ -4,7 +4,7 @@ import { createSignal, onMount, onCleanup, Show } from "solid-js"
 import Hamburger from "@/components/hamburger"
 import Dropdown from "@/components/dropdown"
 
-import navLinks from "@/data/nav_links"
+import navLinks from "@/data/links"
 import { Presence, Motion } from "solid-motionone"
 
 

@@ -9,7 +9,7 @@ import Youtube from "@/icons/Youtube.svg"
 import Facebook from "@/icons/facebook.svg"
 import { For, Show } from "solid-js"
 
-import navLinks from "@/data/nav_links"
+import navLinks from "@/data/links"
 
 export default function Footer() {
     return (
