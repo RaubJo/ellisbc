@@ -9,24 +9,24 @@ tasks:
     cmd: task --list
 
   dev:
-    cmd: pnpm dev
+    cmd: bun run dev
   
   build:
-    cmd: pnpm build
+    cmd: bun run build
 
   start:
-    cmd: pnpm start
+    cmd: bun run start
 
   deploy:preview:
     aliases:
       - preview
       - deploy:dev
       - deploy:development
-    cmd: pnpm run build && npx wrangler deploy --domain dev.ellisbc.org -e dev
+    cmd: bun run build && bunx wrangler deploy --domain dev.ellisbc.org -e preview
 
 
   deploy:production:
     aliases:
       - release
       - deploy:prod
-    cmd: pnpm run build && npx wrangler deploy --domain ellisbc.org --domain www.ellisbc.org -e production
+    cmd: bun run build && bunx wrangler deploy --domain ellisbc.org --domain www.ellisbc.org -e production

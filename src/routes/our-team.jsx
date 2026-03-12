@@ -8,12 +8,12 @@ import { For, createSignal } from "solid-js"
 const getTeam = query(async () => {
     "use server"
     const team = [
-        { name: "Travis Reynolds", email: "travis@ellisbc.org", image: "https://placehold.co/600x750" },
-        { name: "Sarah Reynolds", email: "sarah@ellisbc.org", image: "https://placehold.co/600x750" },
-        { name: "Joseph Raub", email: "joseph@ellisbc.org", image: "https://placehold.co/600x750" },
-        { name: "Abby Raub", email: "abby@ellisbc.org", image: "https://placehold.co/600x750" },
-        { name: "Brian Raub", email: "brian@ellisbc.org", image: "https://placehold.co/600x750" },
-        { name: "Mark Polifka", email: "mark@ellisbc.org", image: "https://placehold.co/600x750" },
+        { name: "Travis Reynolds", email: "travis@ellisbc.org", image: "/images/staff/travis.jpg" },
+        { name: "Sarah Reynolds", email: "sarah@ellisbc.org", image: "/images/staff/sarah.jpg" },
+        { name: "Joseph Raub", email: "joseph@ellisbc.org", image: "/images/staff/joseph.jpg" },
+        { name: "Abby Raub", email: "abby@ellisbc.org", image: "/images/staff/abigail.jpg" },
+        { name: "Brian Raub", email: "brian@ellisbc.org", image: "/images/staff/brian.jpg" },
+        { name: "Mark Polifka", email: "mark@ellisbc.org", image: "/images/staff/mark.jpg" },
     ]
 
     return team.map((member) => ({

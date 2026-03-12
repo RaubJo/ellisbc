@@ -1,6 +1,7 @@
 {
 	"name": "ellisbc",
 	"description": "Ellis Baptist Church's website powered by solidstart and cloudflare.",
+    "license": "UNLICENSED",
 	"author": {
 		"name": "Joseph Raub",
 		"email": "joseph@raubstudios.com",
@@ -8,11 +9,9 @@
 	},
 	"type": "module",
 	"scripts": {
-		"dev": "vinxi dev",
+        "dev": "bun run build && bunx wrangler dev",
 		"build": "vinxi build",
 		"start": "vinxi start",
-		"preview": "pnpm run build && npx wrangler dev",
-		"deploy": "pnpm run build && wrangler deploy",
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
