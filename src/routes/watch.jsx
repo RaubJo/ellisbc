@@ -1,12 +1,6 @@
 import Footer from "@/components/footer"
 import Nav from "@/components/nav"
-import { A, query, createAsync } from "@solidjs/router"
-import Google from "@googleapis/youtube"
-import { GoogleAuth } from 'google-auth-library'
-import credentials from '../../google-services.json'
-import { createEffect, createSignal, For, onMount, Show, Suspense } from "solid-js"
-
-const channelId = 'UCC-6R8UcZrj5tNfIP8UbtSw'
+import { createEffect, createSignal, For, onMount, Show } from "solid-js"
 
 // Server action to fetch page title
 async function fetchPageTitle(url) {
@@ -98,83 +92,53 @@ const linkifyText = (text) => {
     })
 }
 
-const getVideos = query(async () => {
-    "use server"
+const fetchWatchData = async () => {
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), 10000)
 
-    const auth = new GoogleAuth({
-        credentials,
-        scopes: ['https://www.googleapis.com/auth/youtube.readonly']
-    })
+    try {
+        const response = await fetch('/api/watch', {
+            method: 'GET',
+            cache: 'no-store',
+            signal: controller.signal
+        })
 
-    const youtube = Google.youtube({ version: 'v3', auth })
+        if (!response.ok) throw new Error(`Watch API returned ${response.status}`)
 
-    // Channel uploads playlist = replace "UC" with "UU" in channel ID
-    const uploadsPlaylistId = channelId.replace('UC', 'UU')
-
-    const response = await youtube.playlistItems.list({
-        part: ['snippet', 'contentDetails'],
-        playlistId: uploadsPlaylistId,
-        maxResults: 50
-    })
-
-    const items = response.data.items
-
-    // Fetch video durations
-    const videoIds = items.map(item => item.contentDetails.videoId).join(',')
-    const videoDetails = await youtube.videos.list({
-        part: ['contentDetails'],
-        id: videoIds
-    })
-
-    // Map durations to videos
-    const durationMap = {}
-    videoDetails.data.items.forEach(video => {
-        durationMap[video.id] = video.contentDetails.duration
-    })
-
-    // Add duration to each video item
-    return items.map(item => ({
-        ...item,
-        duration: durationMap[item.contentDetails.videoId]
-    }))
-}, "videos")
-
-const getLiveStream = query(async () => {
-    "use server"
-
-    const auth = new GoogleAuth({
-        credentials,
-        scopes: ['https://www.googleapis.com/auth/youtube.readonly']
-    })
-
-    const youtube = Google.youtube({ version: 'v3', auth })
-
-    const response = await youtube.search.list({
-        part: ['snippet'],
-        channelId: channelId,
-        eventType: 'live',
-        type: ['video'],
-        maxResults: 1
-    })
-
-    return response.data.items?.[0] || null
-}, "livestream") 
+        const data = await response.json()
+        return {
+            videos: Array.isArray(data?.videos) ? data.videos : [],
+            liveStream: data?.liveStream ?? null
+        }
+    } catch (error) {
+        console.error("Failed to load watch data", error)
+        return { videos: [], liveStream: null }
+    } finally {
+        clearTimeout(timeout)
+    }
+}
 
 export default function Watch() {
-    const videos = createAsync(() => getVideos())
-    const liveStream = createAsync(() => getLiveStream())
+    const [videos, setVideos] = createSignal(null)
+    const [liveStream, setLiveStream] = createSignal(null)
     const [active, setActive] = createSignal(null)
     const [isLive, setIsLive] = createSignal(true)
     const [sidebarScrolled, setSidebarScrolled] = createSignal(false)
     const [shouldAutoplay, setShouldAutoplay] = createSignal(false)
     const [descriptionExpanded, setDescriptionExpanded] = createSignal(false)
 
+    onMount(async () => {
+        const data = await fetchWatchData()
+        setVideos(data.videos)
+        setLiveStream(data.liveStream)
+    })
+
     // Set initial active video to live stream when it loads
     createEffect(() => {
         if (liveStream() && !active()) {
             setActive(liveStream())
             setIsLive(true)
-        } else if (videos() && !active() && !liveStream()) {
+        } else if (videos() && videos().length > 0 && !active() && !liveStream()) {
             setActive(videos()[0])
             setIsLive(false)
         }
@@ -223,7 +187,14 @@ export default function Watch() {
         <div class="bg-white h-32 pointer-events-none"></div>
         <section class="bg-white w-full text-blue-100 flex flex-col lg:flex-row lg:max-h-screen">
             <div class="w-full lg:w-2/3 p-6 lg:p-10">
-                <Show when={active()} fallback={<VideoSkeleton />}>
+                <Show
+                    when={active()}
+                    fallback={
+                        videos() === null
+                            ? <VideoSkeleton />
+                            : <p class="font-sans text-lg text-gray-500">No videos are available right now.</p>
+                    }
+                >
                     <div key={active()?.id}>
                         <div class="aspect-video w-full">
                             <iframe
@@ -262,17 +233,13 @@ export default function Watch() {
             </div>
             <div class="w-full lg:w-1/3 bg-[#E9EAEC] flex flex-col lg:max-h-screen pt-6 lg:pt-10">
                 <div class={`px-6 pb-4 bg-[#E9EAEC] sticky top-0 z-10 transition-shadow [clip-path:inset(0_0_-10px_0)] ${sidebarScrolled() ? 'shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]' : ''}`}>
-                    <Suspense fallback={
-                        <div class="bg-gray-300 animate-pulse w-full h-12" />
-                    }>
-                        <button
-                            class="bg-blue-100 uppercase text-white w-full px-6 py-3 cursor-pointer hover:bg-blue-100/80 transition-colors select-none"
-                            onClick={selectLiveStream}
-                            disabled={!liveStream()}
-                        >
-                            {liveStream() ? "Watch Live" : "No Live Stream"}
-                        </button>
-                    </Suspense>
+                    <button
+                        class="bg-blue-100 uppercase text-white w-full px-6 py-3 cursor-pointer hover:bg-blue-100/80 transition-colors select-none"
+                        onClick={selectLiveStream}
+                        disabled={!liveStream()}
+                    >
+                        {liveStream() ? "Watch Live" : videos() === null ? "Loading..." : "No Live Stream"}
+                    </button>
                 </div>
                 <div class="flex-col flex gap-6 overflow-y-scroll px-6 pb-6 pt-8" onScroll={(e) => setSidebarScrolled(e.target.scrollTop > 0)}>
                     <Show when={videos()} fallback={<SidebarSkeleton />}>
