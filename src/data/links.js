@@ -8,8 +8,7 @@ export default [
                 items: [
                     { title: "Our Team", href: "/our-team" },
                     { title: "Our Beliefs", href: "/our-beliefs" },
-                    { title: "Who We Are", href: "/who-we-are" },
-                    { title: "What to Expect", href: "/who-we-are#what-to-expect" },
+                    { title: "Plan a visit", href: "/who-we-are" },
                     { title: "Events", href: "/events" },
                 ],
             },

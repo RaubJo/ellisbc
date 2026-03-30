@@ -38,8 +38,8 @@
             },
             "routes": [
                 {
-                "pattern": "dev.ellisbc.org",
-                "custom_domain": true
+                    "pattern": "dev.ellisbc.org",
+                    "custom_domain": true
                 }
             ]
         },
