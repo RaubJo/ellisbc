@@ -123,9 +123,3 @@ u.red::before {
     mask: url("/brushes/brush-8.svg");
     transform: skewX(-4deg) rotate(-0.5deg) scaleY(-1);
 }
-
-body > div > div.slider > div > div:nth-child(2) > div > ul > li,
-body > div > div.added-donations.visible > button,
-.donation-item {
-    border-radius: 0px !important;
-}
