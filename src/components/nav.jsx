@@ -58,7 +58,7 @@ export default function Nav(props) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3, easing: "ease-in-out" }}
                     >
-                        <div class="flex flex-col w-fit gap-y-4 pb-8 px-5 text-right">
+                        <div class="flex flex-col w-fit gap-y-2 pb-8 px-5 text-right">
                             <For
                                 each={navLinks.flatMap((item) => {
                                     if (item.columns) {

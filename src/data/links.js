@@ -24,6 +24,11 @@ export default [
         target: "_blank",
     },
     {
+        name: "LFBI",
+        href: "https://www.lfbi.org/",
+        target: "_blank",
+    },
+    {
         name: "Living Faith",
         href: "https://lffellowship.com",
         target: "_blank",

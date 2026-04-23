@@ -4,6 +4,7 @@ import Footer from "@/components/footer"
 import BackToTop from "@/components/back_to_top"
 import { A, query, createAsync } from "@solidjs/router"
 import { For, createSignal } from "solid-js"
+import Highlights from "@/components/highlights"
 
 const getTeam = query(async () => {
     "use server"
@@ -75,6 +76,7 @@ export default function OurTeam() {
                     </For>
                 </div>
             </section>
+            <Highlights />
             <Footer />
             <BackToTop />
         </>

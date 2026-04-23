@@ -3,8 +3,9 @@ import { A, useLocation } from "@solidjs/router"
 
 const highlights = [
     {
-        label: 'Discipleship',
+        label: 'Path of Growth',
         image: '/images/discipleship.jpg',
+        href: '/path-of-growth'
     },
     {
         label: 'Our Mission',
@@ -25,6 +26,11 @@ const highlights = [
         label: 'Living Faith <br /> Fellowship',
         image: '/images/lffellowship.jpg',
         href: 'https://lffellowship.com/'
+    },
+    {
+        label: 'LFBI',
+        image: '/images/lffellowship.jpg',
+        href: 'https://lfbi.org/'
     },
 ]
 

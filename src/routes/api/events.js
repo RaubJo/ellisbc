@@ -26,7 +26,7 @@ export const GET = async () => {
 
     const response = await fetch(feedUrl, {
         headers: {
-            "User-Agent": "Mozilla/5.0 (compatible; CalendarFetcher/1.0)",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
             "Accept": "text/calendar,text/plain,*/*",
         },
         redirect: "follow",
@@ -34,6 +34,7 @@ export const GET = async () => {
     })
 
     if (!response.ok) {
+        console.error(response)
         return new Response(JSON.stringify({ error: "Failed to fetch calendar" }), {
             status: 502,
             headers: { "content-type": "application/json" },

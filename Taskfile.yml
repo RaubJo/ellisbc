@@ -9,7 +9,7 @@ tasks:
     cmd: task --list
 
   dev:
-    cmd: bun run dev
+    cmd: bun run build && bunx wrangler dev --local-protocol https --port 8787
   
   build:
     cmd: bun run build

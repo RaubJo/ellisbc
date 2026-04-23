@@ -1,13 +1,14 @@
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
-import { MetaProvider, Title, Link } from "@solidjs/meta";
+import { MetaProvider, Title, Link, Meta } from "@solidjs/meta";
 import "./app.css";
 
 export default function App() {
 	return (
 		<MetaProvider>
 			<Title>Ellis Baptist Church</Title>
+			<Meta name="color-scheme" content="light" />
 
 			<Link rel="preconnect" href="https://fonts.googleapis.com" />
 			<Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
