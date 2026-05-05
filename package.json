@@ -1,54 +1,45 @@
 {
-  "name": "",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "wrangler pages dev ./dist",
-    "deploy": "astro build && npx wrangler pages deploy dist",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/alpinejs": "^0.2.2",
-    "@astrojs/cloudflare": "^6.6.0",
-    "@astrojs/react": "^2.2.1",
-    "@astrojs/tailwind": "^4.0.0",
-    "@emailjs/browser": "^3.11.0",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@headlessui/react": "^1.7.16",
-    "@marsidev/react-turnstile": "^0.4.0",
-    "@mui/icons-material": "^5.14.3",
-    "@mui/material": "^5.14.5",
-    "@radix-ui/colors": "^2.1.0",
-    "@radix-ui/react-accordion": "^1.1.2",
-    "@radix-ui/react-icons": "^1.3.0",
-    "@types/alpinejs": "^3.7.2",
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
-    "alpinejs": "^3.12.3",
-    "astro": "^2.7.4",
-    "axios": "^1.6.2",
-    "classnames": "^2.3.2",
-    "clsx": "^2.0.0",
-    "framer-motion": "^10.16.4",
-    "hamburger-react": "^2.5.0",
-    "lodash": "^4.17.21",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-google-recaptcha": "^3.1.0",
-    "react-toastify": "^9.1.3",
-    "tailwind-merge": "^1.14.0",
-    "tailwindcss": "^3.3.2",
-    "tailwindcss-animate": "^1.0.7",
-    "wrangler": "^3.1.1"
-  },
-  "devDependencies": {
-    "@types/lodash": "^4.14.198",
-    "autoprefixer": "^10.4.15",
-    "postcss": "^8.4.29",
-    "wrangler": "^3.1.1"
-  }
+	"name": "ellisbc",
+	"description": "Ellis Baptist Church's website powered by solidstart and cloudflare.",
+    "license": "UNLICENSED",
+	"author": {
+		"name": "Joseph Raub",
+		"email": "joseph@raubstudios.com",
+		"url": "https://www.raubstudios.com"
+	},
+	"type": "module",
+	"scripts": {
+        "dev": "bun run build && bunx wrangler dev",
+		"build": "vinxi build",
+		"start": "vinxi start",
+		"cf-typegen": "wrangler types"
+	},
+	"dependencies": {
+		"@googleapis/youtube": "^30.3.0",
+		"@solidjs/meta": "^0.29.4",
+		"@solidjs/router": "^0.15.0",
+		"@solidjs/start": "^1.1.0",
+		"dayjs": "^1.11.19",
+		"google-auth-library": "^10.5.0",
+		"ical.js": "^2.2.1",
+		"lodash": "^4.17.23",
+		"solid-js": "^1.9.5",
+		"solid-motionone": "^1.0.4",
+		"solid-transition-group": "^0.3.0",
+		"vinxi": "^0.5.7"
+	},
+	"devDependencies": {
+		"@tailwindcss/vite": "^4.0.7",
+		"@types/node": "^25.0.3",
+		"tailwindcss": "^4.0.7",
+		"vite-plugin-solid-svg": "^0.8.1",
+		"vite-tsconfig-paths": "^6.0.3",
+		"wrangler": "^4.56.0"
+	},
+	"engines": {
+		"node": ">=24"
+	},
+	"sideEffects": [
+		"@cloudflare/unenv-preset/dist/runtime/node/process.mjs"
+	]
 }

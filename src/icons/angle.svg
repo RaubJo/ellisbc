@@ -1,0 +1,14 @@
+<svg viewBox="0 0 1920 276" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" fill="none">
+        <polygon fill="#FFFFFF" fill-rule="nonzero" points="0 29.9843831 960 245.871942 1920 29.9843831 1920 275.856325 0 275.856325"></polygon>
+        <polygon fill="#FFFFFF" fill-rule="nonzero" points="0 59.9687663 960 275.856325 1920 59.9687663 1920 275.856325 0 275.856325"></polygon>
+        <g stroke-width="1" fill-rule="evenodd" transform="translate(0, -1)" stroke-linecap="square">
+            <line x1="960.5" y1="276.5" x2="1920.5" y2="60.5" id="Line" stroke="#D1D4D8"></line>
+            <line x1="0.5" y1="276.5" x2="960.5" y2="60.5" id="Line-Copy" stroke="#D1D4D8" transform="translate(480.5, 168.5) scale(-1, 1) translate(-480.5, -168.5)"></line>
+            <line x1="960.5" y1="246.5" x2="1920.5" y2="30.5" id="Line-Copy-3" stroke="#D1D4D8"></line>
+            <line x1="0.5" y1="246.5" x2="960.5" y2="30.5" id="Line-Copy-2" stroke="#D1D4D8" transform="translate(480.5, 138.5) scale(-1, 1) translate(-480.5, -138.5)"></line>
+            <line x1="960.5" y1="216.5" x2="1920.5" y2="0.5" id="Line-Copy-5" stroke="#757D8A"></line>
+            <line x1="0.5" y1="216.5" x2="960.5" y2="0.5" id="Line-Copy-4" stroke="#757D8A" transform="translate(480.5, 108.5) scale(-1, 1) translate(-480.5, -108.5)"></line>
+        </g>
+    </g>
+</svg>

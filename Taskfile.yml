@@ -1,0 +1,32 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  help:
+    desc: "List the tasks and usage."
+    aliases: ["default", "list"]
+    cmd: task --list
+
+  dev:
+    cmd: bun run build && bunx wrangler dev --local-protocol https --port 8787
+  
+  build:
+    cmd: bun run build
+
+  start:
+    cmd: bun run start
+
+  deploy:preview:
+    aliases:
+      - preview
+      - deploy:dev
+      - deploy:development
+    cmd: bun run build && bunx wrangler deploy --domain dev.ellisbc.org -e preview
+
+
+  deploy:production:
+    aliases:
+      - release
+      - deploy:prod
+    cmd: bun run build && bunx wrangler deploy --domain ellisbc.org --domain www.ellisbc.org -e production

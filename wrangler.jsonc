@@ -1,0 +1,73 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "ellisbc",
+	"main": "./worker.mjs",
+	"compatibility_date": "2025-12-23",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"secrets": {
+		"required": [
+			"YOUTUBE_API_KEY"
+		]
+	},
+	"assets": {
+		"binding": "ASSETS",
+		"directory": "./.output/public"
+	},
+    "observability": {
+        "enabled": false,
+        "head_sampling_rate": 1,
+        "logs": {
+        "enabled": true,
+        "head_sampling_rate": 1,
+        "persist": true,
+        "invocation_logs": true
+        },
+        "traces": {
+        "enabled": false,
+        "persist": true,
+        "head_sampling_rate": 1
+        }
+    },
+    "env": {
+        "preview": {
+            "vars": {
+                "CHURCHTRAC_CALENDAR_FEED": "https://www.churchtrac.com/ical?ui=E95F0D21",
+                "SERVER_BASE_URL": "https://dev.ellisbc.org",
+                "VITE_BASE_URL": "https://dev.ellisbc.org"
+            },
+            "routes": [
+                {
+                    "pattern": "dev.ellisbc.org",
+                    "custom_domain": true
+                }
+            ]
+        },
+        "production": {
+            "vars": {
+                "CHURCHTRAC_CALENDAR_FEED": "https://www.churchtrac.com/ical?ui=E95F0D21",
+                "SERVER_BASE_URL": "https://ellisbc.org",
+                "VITE_BASE_URL": "https://ellisbc.org",
+                "CANONICAL_HOSTNAME": "www.ellisbc.org",
+                "REDIRECT_FROM_HOSTNAME": "ellisbc.org",
+            },
+            "routes": [
+                {
+                    "pattern": "ellisbc.org",
+                    "zone_name": "ellisbc.org",
+                    "custom_domain": true
+                },
+                {
+                    "pattern": "www.ellisbc.org",
+                    "zone_name": "ellisbc.org",
+                    "custom_domain": true
+                }
+            ]
+        }
+    }
+}

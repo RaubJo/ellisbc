@@ -1,15 +1,24 @@
 {
-  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "baseUrl": ".",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "allowJs": true,
+    "noEmit": true,
+    "strict": true,
+    "types": [
+        "./worker-configuration.d.ts",
+        "node",
+        "vinxi/types/client",
+        "vite-plugin-solid-svg/types-component-solid"
+    ],
+    "isolatedModules": true,
     "paths": {
-      "@components/*": ["src/components/*"],
-			"@layouts/*": ["src/layouts/*"],
-			"@icons/*": ["src/icons/*"],
-      "@cms/*": ["src/cms/*"],
-      "@images/*": ["src/images/*"]
+      "@/*": ["./src/*"]
     }
-  },
+  }
 }
