@@ -48,11 +48,11 @@ function Info() {
         </div>
         <div class="flex gap-4">
             <Phone class="size-(--icon-size) fill-white"/>
-            <A href="tel:+17857263567" class="hover:underline font-light">785.726.3567</A>
+            <a href="tel:+17857263567" class="hover:underline font-light">785.726.3567</a>
         </div>
         <div class="flex gap-4">
             <Envelope class="size-(--icon-size) fill-white"/>
-            <A href="mailto:info@ellisbc.org">info@ellisbc.org</A>
+            <a href="mailto:info@ellisbc.org">info@ellisbc.org</a>
         </div>
         </>
     )

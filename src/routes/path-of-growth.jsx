@@ -89,7 +89,7 @@ function StepMarker(props) {
 
 function StepCard(props) {
     return (
-        <article class="relative z-10 bg-white px-6 py-8 text-left text-blue-100 sm:px-8 sm:py-10 lg:min-h-[16rem]">
+        <article class="relative z-10 bg-white px-6 py-8 text-left text-blue-100 sm:px-8 sm:py-10 lg:min-h-64">
             <div class="hidden md:block absolute top-0 left-0 h-px w-1/2 bg-linear-to-r from-gold-30/50 to-white" />
             <div class="hidden md:block absolute top-0 left-0 h-1/2 w-px bg-linear-to-b from-gold-30/50 to-white" />
 
