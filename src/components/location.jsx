@@ -11,7 +11,7 @@ export default function Location() {
                         107 W 9th St. <br />
                         Ellis, KS 67637
                     </A>
-                    <a href="tel:+17857263567">785.726.3567</a>
+                    <a href="tel:+17857263657">785.726.3657</a>
                     <a href="mailto:info@ellisbc.org">info@ellisbc.org</a>
                     <button class="bg-blue-100 uppercase text-white w-fit h-fit px-6 py-3 cursor-pointer hover:bg-blue-100/80 transition-colors select-none">
                         Directions
