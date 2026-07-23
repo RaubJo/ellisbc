@@ -11,9 +11,24 @@ import { Presence, Motion } from "solid-motionone"
 export default function Nav(props) {
     const [isScrolled, setIsScrolled] = createSignal(false)
     const [open, setOpen] = createSignal(false)
+    let navRef
+
+    const getScrollThreshold = () => {
+        if (!(props?.clear ?? true)) return 0
+
+        if (window.matchMedia("(max-width: 767px)").matches) {
+            const hero = document.querySelector("[data-nav-fade-trigger='hero']")
+
+            if (hero && navRef) {
+                return Math.max(hero.offsetHeight - (navRef.offsetHeight * 2), 0)
+            }
+        }
+
+        return 330
+    }
 
     const onScroll = () => {
-		setIsScrolled(window.scrollY > 330)
+		setIsScrolled(window.scrollY > getScrollThreshold())
         
         if(open()) {
             setOpen(false)
@@ -23,14 +38,17 @@ export default function Nav(props) {
     onMount(() => {
 		onScroll() 
 		window.addEventListener("scroll", onScroll, { passive: true })
+        window.addEventListener("resize", onScroll, { passive: true })
 
         onCleanup(() => {
 		    window.removeEventListener("scroll", onScroll)
+            window.removeEventListener("resize", onScroll)
 	    })
 	})
 
     return (
         <nav 
+            ref={navRef}
             class="w-full fixed top-0 left-0 min-h-(--height) h-(--height) z-20 px-4 md:px-10 flex transition-all duration-300 [--height:--spacing(24)] lg:[--height:--spacing(32)]"
             classList={{
                 'bg-blue-100': isScrolled() || !(props?.clear ?? true),
