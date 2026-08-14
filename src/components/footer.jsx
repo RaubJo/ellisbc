@@ -48,7 +48,7 @@ function Info() {
         </div>
         <div class="flex gap-4">
             <Phone class="size-(--icon-size) fill-white"/>
-            <a href="tel:+17857263567" class="hover:underline font-light">785.726.3567</a>
+            <a href="tel:+17857263657" class="hover:underline font-light">785.726.3657</a>
         </div>
         <div class="flex gap-4">
             <Envelope class="size-(--icon-size) fill-white"/>

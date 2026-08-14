@@ -14,7 +14,7 @@ export default function RegistrationBanner() {
                         As For Me
                     </h2>
                     <p class="mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/88 sm:text-lg">
-                        Registration is open now. Reserve your spot for Family Conference!
+                        Join us Fri, Aug 28th - Sun, Aug 30th for Family Conference. 
                     </p>
                 </div>
 
